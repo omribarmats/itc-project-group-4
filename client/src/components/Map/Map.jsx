@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import useApi from '../../api/useApi';
+import LocationInfo from '../Modal/LocationInfo';
 
 const top10Locations = [
   {
@@ -65,6 +67,9 @@ const top10Locations = [
 
 export default function LeafletMap() {
 
+  const { getLocationsWithFilters} = useApi()
+
+
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
     L.Icon.Default.mergeOptions({
@@ -72,6 +77,7 @@ export default function LeafletMap() {
       iconUrl: markerIcon,
       shadowUrl: markerShadow,
     });
+      getLocationsWithFilters()
   }, []);
 
   const handleMarkerClick = (locationName) => {
@@ -80,11 +86,12 @@ export default function LeafletMap() {
 
   const CustomPopup = ({googleRank, locationName}) => (
     <Popup>
-      <div>
+      <LocationInfo/>
+      {/* <div>
         <h3>Visit  {locationName}</h3>
         <p>Google ranking: {googleRank}</p>
         <button onClick={()=>handleMarkerClick(locationName)}>Add to my map</button>
-      </div>
+      </div> */}
     </Popup>
   );
   
