@@ -1,5 +1,5 @@
 import './App.css';
-import LeafletMap from './components/LeafletMap';
+import Map from './components/Map/Map';
 import 'leaflet/dist/leaflet.css';
 import UiStack100Vh from './ui/uiKit/layouts/UiStack100Vh';
 import NavBar from './components/NavBar/NavBar';
@@ -10,7 +10,7 @@ function App() {
   return (
     <UiStack100Vh >
      <NavBar></NavBar>
-      <LeafletMap/>
+      <Map/>
       <Modal/>
     </UiStack100Vh>
 
