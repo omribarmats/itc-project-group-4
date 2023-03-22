@@ -105,5 +105,4 @@ export const PARIS_RESULTS = `{
             "latitude": "-0.1329459",
             "type": "Bar",
             "why_should_i_go_there": "Cahoots is an underground cocktail bar set in an old tube station ticket hall. Step back in time as you explore the 1940s-themed bar accompanied by live swing music, perfect for a unique day out in the city."
-    }
-    '
+    }`

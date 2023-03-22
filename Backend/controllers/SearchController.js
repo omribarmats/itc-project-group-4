@@ -3,7 +3,7 @@ const { Configuration, OpenAIApi } = require('openai');
 var converter = require('number-to-words');
 
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: process.env.OPEN_AI_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
