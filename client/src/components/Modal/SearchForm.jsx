@@ -80,11 +80,12 @@ export default function SearchForm() {
         width: 500,
         height: 300,
         maxWidth: "md",
-        backgroundColor: "primary.white",
+        backgroundColor: "white",
         padding: 2,
       }}
     >
       <Box
+        component="form"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -95,7 +96,7 @@ export default function SearchForm() {
         <h2>Search</h2>
         <Autocomplete
           multiple
-          id="checkboxes-tags-demo"
+          id="activities"
           options={activities}
           disableCloseOnSelect
           getOptionLabel={(option) => option.title}
@@ -128,6 +129,7 @@ export default function SearchForm() {
               setValue(newValue);
             }
           }}
+          isOptionEqualToValue={(option, value) => option.title === value.title}
           filterOptions={(options, params) => {
             const filtered = filter(options, params);
 
@@ -170,6 +172,10 @@ export default function SearchForm() {
         />
 
         <Button
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("clicked");
+          }}
           variant="contained"
           size="large"
           style={{
