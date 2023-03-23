@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     destination: {
         name: null,
-        coords: [null, null]
+        coords: [48.8566, 2.3522]
     },
     foundPlaces: [],
     myPlaces: []
@@ -16,14 +16,15 @@ export const mapSlice = createSlice({
     initialState,
     reducers: {
         setDestination: (state, action) =>{
-            state.modal.destination.name = action.payload.name;
-            state.modal.destination.cords = action.payload.cords
+            state.destination.name = action.payload.name;
+            state.destination.coords = action.payload.cords
         },
         setFoundPlaces: (state, action) => {
-            state.modal.foundPlaces = action.payload;
+            console.log('action.payload', action.payload)
+            state.foundPlaces = action.payload;
         },
         setMyPlaces: (state, action) => {
-            state.modal.myPlaces = action.payload;
+            state.myPlaces = action.payload;
         },
     }
 })

@@ -4,11 +4,13 @@ import "leaflet/dist/leaflet.css"; // import the CSS for Leaflet
 import L from "leaflet";
 import { useEffect } from "react";
 
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import useApi from "../../api/useApi";
-import LocationInfo from "../Modal/LocationInfo";
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import useApi from '../../api/useApi';
+import LocationInfo from '../Modal/LocationInfo';
+import { useSelector } from 'react-redux'
+import { setDestination } from '../../state/reducers/mapSlice';
 
 const top10Locations = [
   {
@@ -64,7 +66,10 @@ const top10Locations = [
 ];
 
 export default function LeafletMap() {
-  const { getLocationsWithFilters } = useApi();
+
+  const { getLocationsWithFilters} = useApi()
+  const {foundLocations} = useSelector(state = state.map)
+  const mapCenter = [foundLocations[0]?.latitude , foundLocations[0]?.longitude]
 
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
@@ -75,6 +80,13 @@ export default function LeafletMap() {
     });
     getLocationsWithFilters();
   }, []);
+
+  useEffect(()=>{ dispatch(
+    setDestination({
+      name: , 
+      coords:  [foundLocations[0]?.latitude , foundLocations[0]?.longitude]
+    }))
+  },[foundLocations])
 
   const handleMarkerClick = (locationName) => {
     console.log(`The location ${locationName} has been saved`);
@@ -90,6 +102,17 @@ export default function LeafletMap() {
       </div> */}
     </Popup>
   );
+  
+  const mapStyle = { height: '100vh' }; // set the desired height in pixels
+  
+//center={[48.8566, 2.3522]} 
+
+  return (
+<MapContainer center={[48.8566, 2.3522]} zoom={13} scrollWheelZoom={false} style={mapStyle}>
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
 
   const mapStyle = { height: "100vh" }; // set the desired height in pixels
 
