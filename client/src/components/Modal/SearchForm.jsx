@@ -6,6 +6,13 @@ import { createFilterOptions } from "@mui/material/Autocomplete";
 import { useState } from "react";
 
 export default function SearchForm() {
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('form submited')
+  }
+
+
   const activities = [
     { title: "Cafes" },
     { title: "Parks" },
@@ -75,7 +82,7 @@ export default function SearchForm() {
   const [value, setValue] = useState(null);
 
   return (
-    <Box
+    <Box component='form' onSubmit={handleSubmit} 
       sx={{
         width: 500,
         height: 300,
@@ -170,6 +177,7 @@ export default function SearchForm() {
         />
 
         <Button
+          type='submit'
           variant="contained"
           size="large"
           style={{
