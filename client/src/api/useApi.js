@@ -10,36 +10,36 @@ import { useCallback } from 'react';
 export default function useApi() {
 
     const url = 'http://localhost:3000/filtered-search'
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    const formData =
-    {
-        query: {
-            quantity: 3,
-            location: "Mexico",
-            places: ["Mall", "Coffee", "Museum"]
-        }
-    }
+ 
 
-    const handleApiError = useCallback((error) => {
-        const errorMsg = error.response?.data?.error || error.message;
-        dispatch(setAppError(errorMsg))
-        console.log(error);
-      }, [dispatch])
+    // const handleApiError = useCallback((error) => {
+    //     const errorMsg = error.response?.data?.error || error.message;
+    //     dispatch(setAppError(errorMsg))
+    //     console.log(error);
+    //   }, [dispatch])
 
-    const getLocationsWithFilters = async () => {
-        try {
-            dispatch(startApiCall())
-            console.log('getLocationsWithFilters called')
+
+      const getLocationsWithFilters = useCallback(async (formData) => {
             const res = await axios.post(url, formData)
-            const data =  JSON.parse('[' + res.data.data + ']')
-            console.log('data', data)
-            dispatch(setFoundPlaces(data))
-            dispatch(setLoadingFalse())
-        } catch (error) {
-            handleApiError(error)
-        }
-    }
+            return JSON.parse('[' + res.data.data + ']')
+    },[])
+
+
+    // const getLocationsWithFiltersOrg = async () => {
+    //     try {
+    //         dispatch(startApiCall())
+    //         console.log('getLocationsWithFilters called')
+    //         const res = await axios.post(url, formData)
+    //         const data =  JSON.parse('[' + res.data.data + ']')
+    //         console.log('data', data)
+    //         dispatch(setFoundPlaces(data))
+    //         dispatch(setLoadingFalse())
+    //     } catch (error) {
+    //         handleApiError(error)
+    //     }
+    // }
 
     return ({
         getLocationsWithFilters,
