@@ -4,12 +4,40 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 import { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { clearAppError } from "../../state/reducers/appSlice";
+
 
 export default function SearchForm() {
+
+  const {loading, error} = useSelector(state => state.app)
+  const dispatch = useDispatch()
  
   const handleSubmit = (e) => {
     e.preventDefault()
+    dispatch(clearAppError())
+    const formData = new FormData(e.currentTarget);
+    const type = formData.get('type');
+    const name = formData.get('name')
+    console.log('type', type)
+    console.log('name', name)
+    console.log('formData.entries' ,formData.entries())
+
+    for (const pair of formData.entries()) {
+      console.log(`${pair[0]}, ${pair[1]}`);
+    }
+    
+    // for (let i = 0; i < form.elements.length; i++) {
+    //   const element = form.elements[i];
+    //   if (element.name) {
+    //     formData[element.name] = element.value;
+    //   }
+    // }
+
+
+
     console.log('form submited')
+  
   }
 
 
@@ -104,6 +132,7 @@ export default function SearchForm() {
           multiple
           id="checkboxes-tags-demo"
           options={activities}
+          name='type'
           disableCloseOnSelect
           getOptionLabel={(option) => option.title}
           size="small"
@@ -156,6 +185,7 @@ export default function SearchForm() {
           clearOnBlur
           handleHomeEndKeys
           id="City"
+          name='location'
           options={cities}
           size="small"
           getOptionLabel={(option) => {

@@ -32,11 +32,12 @@ export default function useMap() {
     const  findLocations = useCallback(async () => {
         try {
             dispatch(startApiCall())
-            const locations = await getLocationsWithFilters(formData)
-            dispatch(setFoundPlaces(locations))
+            const {places, destination} = await getLocationsWithFilters(formData)
+            dispatch(setFoundPlaces(places))
+            console.log('destination coords' ,[destination.latitude , destination.longitude])
             dispatch(setDestination({
-                name: 'New destination', 
-                coords:  [locations[0]?.latitude , locations[0]?.longitude]
+                name: destination.name, 
+                coords:  [destination.latitude || destination[0].latitude , destination.longitude || destination[0].longitude]
               }))
             dispatch(setLoadingFalse())
         } catch (error) {

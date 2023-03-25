@@ -23,7 +23,7 @@ export default function useApi() {
 
       const getLocationsWithFilters = useCallback(async (formData) => {
             const res = await axios.post(url, formData)
-            return JSON.parse('[' + res.data.data + ']')
+            return  res.data.data
     },[])
 
 
