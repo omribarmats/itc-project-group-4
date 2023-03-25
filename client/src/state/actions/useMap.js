@@ -6,14 +6,22 @@ import { setDestination, setFoundPlaces } from '../reducers/mapSlice';
 import { useCallback } from 'react';
 
 
-const formData =
+const initialFormData =
 {
     query: {
-        quantity: 3,
-        location: "Mexico",
-        places: ["Mall", "Coffee", "Museum"]
+        quantity: '10',
+        location: "Tel Aviv",
+        places: ["places"]
     }
 }
+// const formData =
+// {
+//     query: {
+//         quantity: 3,
+//         location: "Mexico",
+//         places: ["Mall", "Coffee", "Museum"]
+//     }
+// }
 
 
 export default function useMap() {
@@ -29,7 +37,7 @@ export default function useMap() {
       }, [dispatch])
 
 
-    const  findLocations = useCallback(async () => {
+    const  findLocations = useCallback(async (formData) => {
         try {
             dispatch(startApiCall())
             const {places, destination} = await getLocationsWithFilters(formData)
