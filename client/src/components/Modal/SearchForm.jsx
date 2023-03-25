@@ -24,6 +24,7 @@ const activitiesArray = [
 ];
 
 const citiesArray = [
+  "Tel-Aviv",
   "Tokyo",
   "New Delhi",
   "Beijing",
