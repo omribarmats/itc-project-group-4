@@ -6,6 +6,7 @@ import useMap from '../../state/actions/useMap';
 import { setDestination } from '../../state/reducers/mapSlice';
 
 
+
 export default function HandleMap() {
 
     const {findLocations} = useMap()
@@ -30,7 +31,7 @@ export default function HandleMap() {
     }, [destCoords, moveMapToDestination])
 
     useEffect(() => { map && map.locate() }, [map])
-    useEffect(()=>{map && findLocations()},[])
+    useEffect(()=>{map && findLocations()},[map, findLocations])
 
     return (null)
 }

@@ -10,13 +10,11 @@ const initialState = {
     myPlaces: []
 };
 
-
 export const mapSlice = createSlice({
     name: 'map',
     initialState,
     reducers: {
         setDestination: (state, action) =>{
-            console.log('action.payload', action.payload)
             state.destination.name = action.payload.name;
             state.destination.coords = action.payload.coords
         },
