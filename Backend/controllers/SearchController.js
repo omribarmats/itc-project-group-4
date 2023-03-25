@@ -12,10 +12,9 @@ const openai = new OpenAIApi(configuration);
 module.exports = class SearchController {
 
     static async FilteredSearch(req, res) {
-        const template = '{"name":"..", "longitude": "..","latitude": "..", "type": "..", "why_should_i_go_there": ".."}';
-        //const prompt = `Human: Give me the coordinates of top 10 places to visit in Paris and Put this message in the following JSON structure ${template}\nAI:`;
-        //const prompt = `Generate a json file according to google maps of the coordinates of top 10 places to visit in Paris and in the following JSON structure ${template}`;
-        //const prompt = `Generate a json file of coordinates of day trip in London with 5 coffee and 5 museum and why should i go there in the following JSON structure ${template}`;
+
+        const destinationTemplate = '{"name":"..", "longitude": "..","latitude": ".."}';
+        const placesTemplate = '[{"name":"..", "longitude": "..","latitude": "..", "type": "..", "why_should_i_go_there": ".."}]';
 
         try {
             const validRequest = FilteredSearchValidation(req.body.query);
@@ -30,24 +29,26 @@ module.exports = class SearchController {
             }
 
             let quantity = req.body.query.quantity;
-            const location = req.body.query.location;
+            let location = req.body.query.location;
             const places = req.body.query.places;
 
             quantity = converter.toWords(quantity);
 
-            let prompt = `Generate a json file of coordinates of day trip in ${location} with exactly`;
+            let destinationPromp = '';
 
-            places.forEach(place => {
-                prompt = prompt + ` ${quantity} ${place} and`;
-            });
+            if (typeof location === 'object') {
+                destinationPromp = destinationPromp + `Generate a json file of the coordinates`;
+                location = JSON.stringify(location);
+            }
+            else {
+                destinationPromp = destinationPromp + `Generate a json file of coordinates of`;
+            }
 
-            prompt = prompt + ` why should i go there in the following JSON structure ${template}`;
+            destinationPromp = destinationPromp + ` ${location} in the following JSON structure ${destinationTemplate}`;
 
-            //console.log("prompt", prompt);
-
-            const response = await openai.createCompletion({
+            const destinationResponse = await openai.createCompletion({
                 model: "text-davinci-003",
-                prompt: prompt,
+                prompt: destinationPromp,
                 temperature: 0.9,
                 max_tokens: 4000,
                 top_p: 1,
@@ -56,11 +57,37 @@ module.exports = class SearchController {
                 stop: [" Human:", " AI:"],
             });
 
-            console.log(response.data.choices[0].text);
+            let placesPrompt = `Generate a json file of coordinates of top places in ${location} with exactly`;
+
+            places.forEach(place => {
+                placesPrompt = placesPrompt + ` ${quantity} ${place} and`;
+            });
+
+            if (places.length == 0) {
+                placesPrompt = placesPrompt + ` ${quantity} places and`;
+            }
+
+            placesPrompt = placesPrompt + ` why should i go there in the following JSON structure ${placesTemplate}`;
+
+            const placesResponse = await openai.createCompletion({
+                model: "text-davinci-003",
+                prompt: placesPrompt,
+                temperature: 0.9,
+                max_tokens: 4000,
+                top_p: 1,
+                frequency_penalty: 0.0,
+                presence_penalty: 0.6,
+                stop: [" Human:", " AI:"],
+            });
+
+            const data = {
+                destination: JSON.parse(destinationResponse.data.choices[0].text),
+                places: JSON.parse(placesResponse.data.choices[0].text)
+            };
 
             return res.status(200).json({
                 success: true,
-                data: response.data.choices[0].text
+                data: data
             });
 
         } catch (error) {
