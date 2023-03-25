@@ -9,6 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useState } from "react";
+import useMap from "../../state/actions/useMap";
 
 const activitiesArray = [
   "Cafes",
@@ -80,30 +81,21 @@ export default function SearchForm() {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
   const [city, setCity] = useState("");
+  const {findLocations} = useMap();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearAppError());
-    const formData = new FormData(e.currentTarget);
-    const type = formData.get("type");
-    const name = formData.get("name");
-    console.log("type", type);
-    console.log("name", name);
-    console.log("formData.entries", formData.entries());
-    console.log("city:", city, "activities:", activities);
 
-    for (const pair of formData.entries()) {
-      console.log(`${pair[0]}, ${pair[1]}`);
+    const query = {
+      query: {
+        quantity: 5,
+        location: city,
+        places: activities
+      }
     }
-
-    // for (let i = 0; i < form.elements.length; i++) {
-    //   const element = form.elements[i];
-    //   if (element.name) {
-    //     formData[element.name] = element.value;
-    //   }
-    // }
-
-    console.log("form submited");
+    console.log("query:", query);
+    findLocations(query)
   };
 
   const handleActivityChange = (event) => {
