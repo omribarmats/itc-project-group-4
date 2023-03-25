@@ -6,7 +6,6 @@ module.exports.FilteredSearchValidation = ajv.compile({
     properties: {
         quantity: { type: 'number' },
         location: {
-            // type: ['string', 'object'],
             anyOf: [
                 { type: "string" },
                 { type: "object" }

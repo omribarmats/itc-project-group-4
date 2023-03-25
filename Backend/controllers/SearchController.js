@@ -41,7 +41,7 @@ module.exports = class SearchController {
                 location = JSON.stringify(location);
             }
             else {
-                destinationPromp = destinationPromp + `Generate a json file of coordinates of`;
+                destinationPromp = destinationPromp + `Generate an object of coordinates of`;
             }
 
             destinationPromp = destinationPromp + ` ${location} in the following JSON structure ${destinationTemplate}`;
