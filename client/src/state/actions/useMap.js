@@ -1,7 +1,7 @@
 import React from 'react'
 import useApi from '../../api/useApi';
 import {useDispatch, useSelector} from 'react-redux'
-import { setAppError, setLoadingFalse, startApiCall } from '../reducers/appSlice';
+import { closeModal, setAppError, setLoadingFalse, startApiCall } from '../reducers/appSlice';
 import { setDestination, setFoundPlaces } from '../reducers/mapSlice';
 import { useCallback } from 'react';
 
@@ -48,6 +48,7 @@ export default function useMap() {
                 coords:  [destination.latitude || destination[0].latitude , destination.longitude || destination[0].longitude]
               }))
             dispatch(setLoadingFalse())
+            dispatch(closeModal())
         } catch (error) {
             handleApiError(error)       
         } 

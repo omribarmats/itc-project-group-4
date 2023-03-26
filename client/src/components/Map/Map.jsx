@@ -25,12 +25,17 @@ export default function LeafletMap() {
     });
   }, []);
 
-  const typeIcon = (type) =>
-    L.icon({
-      iconUrl: `icon-${type}-blue.png`,
+
+
+  const typeIcon = (type) =>{ 
+  const iconTypes = ['bar','cafe','hostel','hotel','mall','market','museum','park','restaurant','start-up']
+  const hasIconType = iconTypes.includes
+   return L.icon({
+      iconUrl: hasIconType ?  `icon-${type}-blue.png` : `icon-blue.png` ,
       iconSize: [50, 50],
       popupAnchor: [0, -20],
     });
+  }
 
   const handleMarkerClick = (locationName) => {
     console.log(`The location ${locationName} has been saved`);
