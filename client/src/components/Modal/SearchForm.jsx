@@ -25,56 +25,56 @@ const activitiesArray = [
 ];
 
 const citiesArray = [
-  "Tel-Aviv",
-  "Tokyo",
-  "New Delhi",
-  "Beijing",
-  "Moscow",
-  "Seoul",
-  "Berlin",
-  "Jakarta",
-  "London",
-  "Brasília",
-  "Canberra",
-  "Ottawa",
-  "Washington D.C.",
-  "Madrid",
-  "Paris",
-  "Rome",
   "Amsterdam",
+  "Athens",
+  "Baku",
+  "Beijing",
+  "Belgrade",
+  "Berlin",
+  "Brasília",
+  "Brussels",
+  "Bucharest",
+  "Budapest",
   "Buenos Aires",
   "Cairo",
-  "Dublin",
-  "Oslo",
-  "Lisbon",
-  "Stockholm",
-  "Athens",
-  "Vienna",
-  "Brussels",
-  "Helsinki",
-  "Prague",
-  "Warsaw",
-  "Budapest",
-  "Copenhagen",
-  "Reykjavik",
-  "Nicosia",
-  "Tallinn",
-  "Riga",
-  "Vilnius",
-  "Ljubljana",
-  "Zagreb",
-  "Sofia",
-  "Bucharest",
-  "Belgrade",
-  "Skopje",
-  "Podgorica",
-  "Tirana",
+  "Canberra",
   "Chisinau",
-  "Minsk",
+  "Copenhagen",
+  "Dublin",
+  "Helsinki",
+  "Jakarta",
   "Kiev",
-  "Tbilisi",
+  "La-plata",
+  "Lisbon",
+  "Ljubljana",
+  "London",
+  "Madrid",
+  "Minsk",
+  "Moscow",
+  "New Delhi",
+  "Nicosia",
+  "Oslo",
+  "Ottawa",
+  "Paris",
+  "Podgorica",
+  "Prague",
+  "Reykjavik",
+  "Riga",
+  "Rome",
+  "Seoul",
+  "Skopje",
+  "Sofia",
+  "Stockholm",
+  "Tallinn",
+  "Tel-Aviv",
+  "Tirana",
+  "Tokyo",
+  "Vienna",
+  "Vilnius",
+  "Warsaw",
+  "Washington D.C.",
   "Yerevan",
-  "Baku",
+  "Zagreb",
 ];
 
 export default function SearchForm() {
@@ -82,7 +82,7 @@ export default function SearchForm() {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
   const [city, setCity] = useState("");
-  const {findLocations} = useMap();
+  const { findLocations } = useMap();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -92,11 +92,11 @@ export default function SearchForm() {
       query: {
         quantity: 5,
         location: city,
-        places: activities
-      }
-    }
+        places: activities,
+      },
+    };
     console.log("query:", query);
-    findLocations(query)
+    findLocations(query);
   };
 
   const handleActivityChange = (event) => {

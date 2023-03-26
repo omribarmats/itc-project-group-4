@@ -1,10 +1,17 @@
 import React from "react";
 import "./LocationInfo.css";
 import { Box, Button, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavBar } from "../NavBar/NavBar.jsx";
 
 export default function LocationInfo(props) {
+  const [savedArray, setSavedArray] = useState([]);
+  const [isSaved, setIsSaved] = useState(false);
+  const { foundPlaces } = useSelector((state) => state.map);
+
   const handleSaveLocation = () => {
-    console.log("handleSaveLocation");
+    setIsSaved(!isSaved);
   };
 
   return (
@@ -25,7 +32,10 @@ export default function LocationInfo(props) {
           p: 0,
         }}
       >
-        <img src={`icon-${props.type}-blue.png`} width="50px" />
+        <img
+          src={`icon-${props.type}-${isSaved ? "purple" : "blue"}.png`}
+          width="50px"
+        />
         <Typography
           variant="h2"
           sx={{
@@ -44,7 +54,7 @@ export default function LocationInfo(props) {
           mb: 0,
           fontWeight: 600,
           fontSize: 12,
-          color: "primary.main",
+          color: isSaved ? "Purple" : "#1976D2",
         }}
       >
         {/* {props.type.charAt(0).toUpperCase() + props.type.slice(1)} */}
@@ -63,14 +73,18 @@ export default function LocationInfo(props) {
 
       <Button
         sx={{ alignSelf: "center", m: 1 }}
-        style={{ minWidth: "150px", maxWidth: "100px" }}
+        style={{
+          minWidth: "150px",
+          maxWidth: "100px",
+          backgroundColor: isSaved ? "Purple" : "#1976D2",
+        }}
         variant="contained"
         onClick={(e) => {
           e.preventDefault();
           handleSaveLocation();
         }}
       >
-        Save
+        {isSaved ? "Remove" : "Save"}
       </Button>
     </Box>
   );

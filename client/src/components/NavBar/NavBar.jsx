@@ -1,30 +1,34 @@
-import React from 'react'
-import UiAppBar from '../../ui/uiKit/componentsUi/UiAppBar'
-import UiToolbar from '../../ui/uiKit/layouts/UiToolbar'
-import UiBox from '../../ui/uiKit/componentsUi/UiBox'
+import React from "react";
+import UiAppBar from "../../ui/uiKit/componentsUi/UiAppBar";
+import UiToolbar from "../../ui/uiKit/layouts/UiToolbar";
+import UiBox from "../../ui/uiKit/componentsUi/UiBox";
+import { useState } from "react";
 
-import NavBarButton from './NavBarButton'
-import { MODAL_OPTIONS, openModal } from '../../state/reducers/appSlice'
-import { useDispatch } from 'react-redux'
-
+import NavBarButton from "./NavBarButton";
+import { MODAL_OPTIONS, openModal } from "../../state/reducers/appSlice";
+import { useDispatch } from "react-redux";
 
 export default function NavBar() {
+  const [myMaps, setMyMaps] = useState(false);
 
-   const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const handleSearchClick = () => {
-        dispatch(openModal(MODAL_OPTIONS.search))
-    }
+  const handleSearchClick = () => {
+    dispatch(openModal(MODAL_OPTIONS.search));
+  };
 
-    return (
-        <UiAppBar position="sticky" sx={{backgroundColor:'black'}}>
-            <UiToolbar>
-                <UiBox px={3}>Logo</UiBox>
-                <NavBarButton onClick={handleSearchClick}>Search</NavBarButton>
-                <NavBarButton>My Map</NavBarButton>
-                <NavBarButton>View</NavBarButton>
-            </UiToolbar>
-        </UiAppBar>
+  const handleMyMapsClick = () => {
+    setMyMaps(!myMaps);
+  };
 
-    )
+  return (
+    <UiAppBar position="sticky" sx={{ backgroundColor: "black" }}>
+      <UiToolbar>
+        <UiBox px={3}>Logo</UiBox>
+        <NavBarButton onClick={handleSearchClick}>Search</NavBarButton>
+        <NavBarButton onClick={handleMyMapsClick}>My Map</NavBarButton>
+        <NavBarButton>View</NavBarButton>
+      </UiToolbar>
+    </UiAppBar>
+  );
 }

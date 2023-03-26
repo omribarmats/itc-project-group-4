@@ -36,12 +36,19 @@ export default function LeafletMap() {
     console.log(`The location ${locationName} has been saved`);
   };
 
-  const CustomPopup = ({ name, why_should_i_go_there, type }) => (
+  const CustomPopup = ({
+    name,
+    why_should_i_go_there,
+    type,
+    latitude,
+    longitude,
+  }) => (
     <Popup>
       <LocationInfo
         name={name}
         description={why_should_i_go_there}
         type={type}
+        position={[latitude, longitude]}
       />
     </Popup>
   );
