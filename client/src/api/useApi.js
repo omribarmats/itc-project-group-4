@@ -12,7 +12,7 @@ export default function useApi() {
     const url = 'http://localhost:3000/filtered-search'
     // const dispatch = useDispatch()
 
- 
+
 
     // const handleApiError = useCallback((error) => {
     //     const errorMsg = error.response?.data?.error || error.message;
@@ -21,10 +21,10 @@ export default function useApi() {
     //   }, [dispatch])
 
 
-      const getLocationsWithFilters = useCallback(async (formData) => {
-            const res = await axios.post(url, formData)
-            return  res.data.data
-    },[])
+    const getLocationsWithFilters = useCallback(async (formData) => {
+        const res = await axios.post(url, formData)
+        return res.data.data
+    }, [])
 
 
     // const getLocationsWithFiltersOrg = async () => {
