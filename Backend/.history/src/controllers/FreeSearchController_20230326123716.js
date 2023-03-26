@@ -24,7 +24,10 @@ async function Chat(
 		return answer;
 	} catch (error) {
 		console.log('error:', error);
-		return error;
+		return answer.status(400).json({
+			success: false,
+			error: error.response,
+		});
 	}
 }
 module.exports = class FreeSearchController {
@@ -68,42 +71,16 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: [
-	{
-		"name": 'The Israel Museum',
-		"longitude": '31.7764903',
-		"latitude": '35.1983634',
-		"type": 'Museum',
-		"address": 'Ruppin Blvd, Jerusalem 9179035, Israel',
-		"reason":
-			'Represents the rich history of the Jewish people and many other cultures from around the world.',
-	},
-	{
-		"name": 'Ticho House',
-		"longitude": '31.7801072',
-		"latitude": '35.2041865',
-		"type": 'Museum',
-		"address": '14 Shmuel HaNagid St, Jerusalem 9419091, Israel',
-		"reason":
-			'Features a wide collection of artworks by Anna Ticho and Avraham Albert Ticho.',
-	}
-];
-`;
+		prompt = `Give travel recommendations based on the following text "${query}" in JS array of objects, for example: {
+	"name": "The British Museum",
+	"longitude": "51.5194133",
+	"latitude": "-0.1269566",  
+	"type": "Museum",
+	“Address”: “Great Russell St, London WC1B 3DG, United Kingdom”,
+	"reason": "Huge showcase for global antiquities, including Egyptian mummies and ancient Greek sculptures."
+.`;
 
-		try {
-			const giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
-			console.log('giveRecommendation:', giveRecommendation);
-			return res.status(200).json({
-				success: true,
-				destinations: giveRecommendation,
-			});
-		} catch (error) {
-			return res.status(400).json({
-				success: false,
-				error: error.response
-					? error.response.data
-					: 'There was an issue on the server',
-			});
-		}
+		const giveRecommendation = await Chat(prompt, 0.5, 150, 0.5, 0.3, 0.3);
+		console.log('giveRecommendation:', giveRecommendation);
 	}
 };

@@ -95,7 +95,7 @@ module.exports = class FreeSearchController {
 			console.log('giveRecommendation:', giveRecommendation);
 			return res.status(200).json({
 				success: true,
-				destinations: giveRecommendation,
+				destinations: JSON.parse(giveRecommendation),
 			});
 		} catch (error) {
 			return res.status(400).json({

@@ -68,30 +68,17 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: [
-	{
-		"name": 'The Israel Museum',
-		"longitude": '31.7764903',
-		"latitude": '35.1983634',
-		"type": 'Museum',
-		"address": 'Ruppin Blvd, Jerusalem 9179035, Israel',
-		"reason":
-			'Represents the rich history of the Jewish people and many other cultures from around the world.',
-	},
-	{
-		"name": 'Ticho House',
-		"longitude": '31.7801072',
-		"latitude": '35.2041865',
-		"type": 'Museum',
-		"address": '14 Shmuel HaNagid St, Jerusalem 9419091, Israel',
-		"reason":
-			'Features a wide collection of artworks by Anna Ticho and Avraham Albert Ticho.',
-	}
-];
-`;
+		prompt = `Give travel recommendations based on the following text "${query}" in JS array of objects, for example: {
+	"name": "The British Museum",
+	"longitude": "51.5194133",
+	"latitude": "-0.1269566",  
+	"type": "Museum",
+	“Address”: “Great Russell St, London WC1B 3DG, United Kingdom”,
+	"reason": "Huge showcase for global antiquities, including Egyptian mummies and ancient Greek sculptures."
+.`;
 
 		try {
-			const giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
+			const giveRecommendation = await Chat(prompt, 0.5, 150, 0.5, 0.3, 0.3);
 			console.log('giveRecommendation:', giveRecommendation);
 			return res.status(200).json({
 				success: true,

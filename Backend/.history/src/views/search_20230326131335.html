@@ -63,8 +63,8 @@
             // const response = await fetch('https://6416d60d3fbb68b01bff207d.mockapi.io/free-search/Location')
             const { destinations } = await response.json()
 
-            // const data = eval('(' + destinations + ')');
-            console.log(destinations);
+            const data = eval('(' + destinations + ')');
+            console.log(data);
 
             // let html = '';
             // data.map((item) => {

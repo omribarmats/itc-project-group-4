@@ -1,5 +1,4 @@
 const openai = require('../config');
-
 async function Chat(
 	prompt,
 	temperature,
@@ -24,7 +23,6 @@ async function Chat(
 		return answer;
 	} catch (error) {
 		console.log('error:', error);
-		return error;
 	}
 }
 module.exports = class FreeSearchController {
@@ -56,7 +54,7 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"false"}`;
+		prompt = `Is the following text asking for travel recommendations "${query}" Return "true/"false"}`;
 		const isRecommendation = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();
@@ -64,45 +62,7 @@ module.exports = class FreeSearchController {
 			console.log('is not a recommendation');
 			return res.status(200).json({
 				success: true,
-				data: 'Please enter ask for recommendations',
-			});
-		}
-
-		prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: [
-	{
-		"name": 'The Israel Museum',
-		"longitude": '31.7764903',
-		"latitude": '35.1983634',
-		"type": 'Museum',
-		"address": 'Ruppin Blvd, Jerusalem 9179035, Israel',
-		"reason":
-			'Represents the rich history of the Jewish people and many other cultures from around the world.',
-	},
-	{
-		"name": 'Ticho House',
-		"longitude": '31.7801072',
-		"latitude": '35.2041865',
-		"type": 'Museum',
-		"address": '14 Shmuel HaNagid St, Jerusalem 9419091, Israel',
-		"reason":
-			'Features a wide collection of artworks by Anna Ticho and Avraham Albert Ticho.',
-	}
-];
-`;
-
-		try {
-			const giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
-			console.log('giveRecommendation:', giveRecommendation);
-			return res.status(200).json({
-				success: true,
-				destinations: giveRecommendation,
-			});
-		} catch (error) {
-			return res.status(400).json({
-				success: false,
-				error: error.response
-					? error.response.data
-					: 'There was an issue on the server',
+				data: 'Please enter a question for recommendations',
 			});
 		}
 	}

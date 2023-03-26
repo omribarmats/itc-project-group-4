@@ -47,3 +47,16 @@ app.post('/free-search', FreeSearchController.Search);
 const port = process.env.PORT;
 
 app.listen(port, () => console.log(`server listening on port ${port}`));
+
+const response = (result = {
+	message: 'Yes, you asked about Houston and here are my recommendations',
+	date: [
+		{
+			name: 'The Museum of Fine Arts',
+			describeInAShortParagraphWhyThisLocationIsAGoodDestination:
+				"The Museum of Fine Arts, Houston is an excellent destination for people who use wheelchairs because it is fully accessible and offers a range of accommodations and services to ensure a positive experience. From wheelchair-accessible entrances and elevators to free wheelchair availability and staff support, the museum is committed to ensuring that all visitors can enjoy its exhibits. The availability of ASL interpretation, assistive listening devices, and audio guides with descriptive text further enhances the museum's inclusivity for visitors with different disabilities.",
+			address: '13 Rue du Bac, 75007 Paris, France',
+			coordinates: [48.859809, 2.334535],
+		},
+	],
+});
