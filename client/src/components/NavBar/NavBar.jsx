@@ -10,14 +10,14 @@ import { useDispatch } from 'react-redux'
 
 export default function NavBar() {
 
-   const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const handleSearchClick = () => {
         dispatch(openModal(MODAL_OPTIONS.search))
     }
 
     return (
-        <UiAppBar position="sticky" sx={{backgroundColor:'black'}}>
+        <UiAppBar position="sticky" sx={{ backgroundColor: 'black' }}>
             <UiToolbar>
                 <UiBox px={3}>Logo</UiBox>
                 <NavBarButton onClick={handleSearchClick}>Search</NavBarButton>
