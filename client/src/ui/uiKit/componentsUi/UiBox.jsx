@@ -1,10 +1,10 @@
-import Box  from '@mui/material/Box'
+import Box from '@mui/material/Box'
 import React from 'react'
 
-export default function UiBox({...props}) {
+export default function UiBox({ ...props }) {
   return (
     <Box {...props} >
-        {props.children}
+      {props.children}
     </Box>
   )
 }

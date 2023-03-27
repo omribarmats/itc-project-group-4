@@ -12,8 +12,8 @@ import { textAlign } from "@mui/system";
 
 
 export default function Modal() {
-  const { isOpen} = useSelector((state) => state.app.modal);
-  const { loading} = useSelector((state) => state.app);
+  const { isOpen } = useSelector((state) => state.app.modal);
+  const { loading } = useSelector((state) => state.app);
 
   const dispatch = useDispatch();
 
@@ -22,32 +22,32 @@ export default function Modal() {
     dispatch(closeModal());
   };
 
- 
+
 
   return (
-     !loading ? (
+    !loading ? (
       <UiDialog open={isOpen} onClose={handleOnClose}>
-      <SearchForm />
-    </UiDialog>
-    ):(
+        <SearchForm />
+      </UiDialog>
+    ) : (
       <UiDialog open={isOpen}
-      PaperProps={{
-        style: {
-          backgroundColor: 'transparent',
-          boxShadow: 'none',
-        },
-      }}
+        PaperProps={{
+          style: {
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+          },
+        }}
       >
-        <UiBox sx={{width:'300px'}}>
-         
+        <UiBox sx={{ width: '300px', overflow: 'hidden' }}>
 
-        <Lottie  animationData={AirplaneAnimation} loop={true} />;
-        <Typography variant="h6" sx={{color:'white', marginTop:'-50px', textAlign:'center'}}>
-        Loading...
-        </Typography>
-          
+
+          <Lottie animationData={AirplaneAnimation} loop={true} />;
+          <Typography variant="h6" sx={{ color: 'white', marginTop: '-50px', textAlign: 'center' }}>
+            Loading...
+          </Typography>
+
         </UiBox>
-      {/* <UiFlexCol alignItems='center' justifyContent='center'
+        {/* <UiFlexCol alignItems='center' justifyContent='center'
         sx={{
           height: '150px',
           width: '150px',
@@ -65,6 +65,6 @@ export default function Modal() {
       </UiDialog>
     )
 
-    
+
   );
 }
