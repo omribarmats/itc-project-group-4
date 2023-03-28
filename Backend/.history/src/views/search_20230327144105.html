@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="search.css">
+  
+</head>
+<body>
+
+    <div class="container">
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        
+                        <!--end of col-->
+                        <div class="col">
+                            <input id="search-input" class="form-control form-control-lg form-control-borderless" type="search"
+                                placeholder="Search topics or keywords">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="submit">Search</button>
+                        </div>
+                        <!--end of col-->
+                        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+                            integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+                            crossorigin="anonymous">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <div id="search-results" class="row justify-content-center pt-3 ">Results</div>
+  <script>
+    const form = document.querySelector('form');
+    const searchInput = document.querySelector('#search-input');
+    const searchResults = document.querySelector('#search-results');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        searchResults.innerHTML = "Loading..."
+        const query = searchInput.value;
+        const apiUrl = 'http://localhost:4000/free-search'
+        const requestBody = { query };
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: query })
+            });
+        
+            const { destinations } = await response.json()
+
+            console.log(destinations)
+
+           const destinationsHTML = destinations.map(item => `
+    <div class="border border-primary rounded m-4">
+      <h2>${item.name}</h2>
+      <p>Age: ${item.address}</p>
+    </div>
+  `).join("");
+
+            searchResults.innerHTML = destinationsHTML;
+            
+        } catch (error) {
+            console.error(error);
+            searchResults.innerHTML = 'An error occurred while searching.';
+        }
+    });
+</script>
+</body>
+</html>

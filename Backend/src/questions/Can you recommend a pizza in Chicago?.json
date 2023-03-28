@@ -1,0 +1,66 @@
+
+
+[
+	{
+		"name": "Lou Malnati's Pizzeria",
+		"type": "Pizzeria",
+		"address": "1120 N State St, Chicago, IL 60610, United States",
+		"longitude": -87.6287547,
+		"latitude": 41.900817, 
+		"why_should_i_go_there": "Located in the heart of downtown Chicago, Lou Malnati's Pizzeria offers some of the best pizza in the city. Since 1971, this pizzeria has been crafting delicious deep-dish and thin-crust pizza using only fresh ingredients and a unique recipe. Their signature dish is the Chicago-style deep-dish pizza with a crunchy crust, homemade sausage chunks, and melted mozzarella cheese. The pizzas are baked to perfection in their ovens and served piping hot with a warm welcome from the staff."
+	}, 
+	{ 
+	    "name": "Gino's East River North", 
+        "type": "Pizzeria", 
+        "address": "500 N LaSalle Dr, Chicago, IL 60654, United States", 
+        "longitude": -87.6335197, 
+        "latitude": 41.890985, 
+        "why_should_i_go_there": "Gino's East River North is one of the most popular pizzerias in downtown Chicago. This lively restaurant specializes in deep-dish pizza, made with hand-formed dough that rests for 24 hours before baking. Guests can customize their own pies or choose from several classic flavors such as spinach, pepperoni, and sausage. The space is cozy and inviting with an old school vibe that encourages you to sit back and relax after your meal" 
+    }, 
+
+    { 
+
+       "name": "The Art of Pizza", 
+
+       "type": "Pizzeria", 
+
+       "address": "3033 N Ashland Ave, Chicago, IL 60657, United States", 
+
+       "longitude":-87.6681497 , 
+
+       "latitude":41.9336389 ,
+
+       "why_should_i_go_there":"The Art of Pizza is known for its unique creations made with traditional Italian ingredients. The menu includes classic Neopolitan pizzas as well as interesting toppings like Asiago cheese and truffle oil-infused artichokes. Guestscan also create their own custom pies with handmade dough rolled out just minutes before baking it in a brick oven." 
+
+    },  
+
+    {  
+
+       "name":"Coal Fire Pizza Company ", 
+
+       "type":"Pizzeria",  
+
+       "address":"1460 W Lake St Suite 103A,, Oak Park, IL 60301 , United States",    
+
+       "longitude":-87.7890799 ,  
+
+       "latitude":41.8892951 ,  
+
+       "why_should_i_go_there":"If you're looking for something slightly different than your typical Chicago-style pizza joint then Coal Fire Pizza Company is definitely worth a visit. This coal-fired pizzeria elevates traditional pies by adding toppings like goat cheese and grilled veggies to their handcrafted creations. They also offer other Italian staples such as antipasto salad and pasta dishes that make great accompaniments to any meal."   
+
+    },  
+
+    {  
+
+       "name":"My Pi Custom Pizza" , 
+
+       "type":"Pizzeria" , 
+
+       "address":"570 W Belden Ave #122a, Chicago, IL 60614 , United States" , 
+
+       "longitude":-7764903 , 
+
+       "latitude":35.-1983634 , 
+
+       "why_should_i_go_there":"My Pi Custom Pizza is the perfect spot for creating your own delicious pizza exactly the way you like it! There's no pre-set menu here so you can choose from a variety of locally sourced cheeses and meats as well as creative toppings like caramelized onions or roasted garlic. After choosing your favorite ingredients, watch as your custom creation is cooked to perfection in their onsite woodburning oven."   }
+]

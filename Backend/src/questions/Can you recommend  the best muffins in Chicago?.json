@@ -1,0 +1,37 @@
+:
+
+[{
+	"name": "Goddess and Grocer",
+	"address": "1649 North Damen Avenue, Chicago, IL 60647",
+	"longitude": -87.6845886,
+	"latitude": 41.9089018,
+	"why_should_i_go_there": "Goddess and Grocer offers some of the best muffins in Chicago. Baked from scratch every morning, the muffins are a popular breakfast option among locals. The menu features a wide selection of flavors, including blueberry, pumpkin spice, and banana walnut. All muffins are freshly prepared using natural ingredients that guarantee a delicious and satisfying snack."
+},
+{
+	"name": "Hoffman’s Decadence Desserts Cafe & Bakery",
+	"address": "365 West 6th Street, Chicago, IL 60654",
+	"longitude": -87.6438709,
+	"latitude": 41.8706457,
+	"why_should_i_go_there": "Hoffman's Decadence Desserts Cafe & Bakery is the perfect place for a sweet treat after dinner or a late night snack. In addition to coffee and tea-based beverages, the cafe also serves gourmet desserts like homemade muffins in various flavors such as banana nut, carrot cake, oatmeal raisin and double chocolate chip. They also offer an extensive selection of cakes, cupcakes, cookies and pastries that are sure to satisfy any sweet tooth!" 
+}, 
+{  
+	"name": "Buttercrumb Bake Shop", 
+	"address": "4020 North Lincoln Avenue, Chicago, IL 60618", 
+	"longitude": -87.6726366 , 
+	"latitude": 41.9450623, 
+	"why_should_i_go_there": "Buttercrumb Bake Shop is a specialty bakery located in Chicago's Lincoln Square neighborhood. This family-run business offers freshly baked goods like muffins, scones and breads every day. The muffins come in an array of flavors such as blueberry streusel, banana cream pie and chocolate chip walnut. Stop by for breakfast or grab one of these delicious treats to go!" 
+}, 
+{ 
+	"name": "Cafe Inspiration",   
+	"address": "1104 West Belmont Avenue #1A, Chicago, IL 60657",   
+	"longitude":-87.6688263 ,  
+	"latitude":41.9388683,  
+	"why_should_i_go_there": "Cafe Inspiration is known for their amazing muffins! They specialize in all natural and vegan friendly offerings with flavors like cranberry orange poppyseed or peanut butter banana crunch available by the dozen or half dozen. What sets their muffins apart from the rest is their high quality fresh ingredients they use like plump sun dried cranberries and sustainably grown peanuts so you know you're getting a great product no matter which one you choose!"  
+}, 
+{  
+	"name":"Bakewell on Southport (formerly Smith & Weer)",  
+	"address":"622 West Southport Road #217a , Chicago., IL 60613 ",  
+	"longitude":-87.6889976 ,   
+     "latitude":41.952192,  
+
+     "why_should_i_go_there":"Bakewell on Southport is one of the most popular bakeries in Chicago for its delicious hand crafted muffins! Each flavourful bite includes seasonal fruit fillings ranging from blueberry-lemon curd to apple chai spice creations which burst with sweet flavour combinations unique to this store alone! To ensure quality always remains high each delicious treat is made fresh daily."      }]

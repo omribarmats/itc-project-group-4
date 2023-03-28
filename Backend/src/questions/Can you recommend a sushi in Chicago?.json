@@ -1,0 +1,26 @@
+
+
+[{
+	"name": "Momotaro", 
+	"address": "820 W Lake St, Chicago, IL 60607",
+	"longitude": -87.6487369,
+	"latitude": 41.885695,
+	"why_should_i_go_there": "Momotaro is a seafood-focused sushi restaurant located in the heart of Chicago's West Loop neighborhood. The menu features an array of classic and modern Japanese dishes, including tataki, sashimi, and nigiri. The atmosphere is cozy and intimate, making it perfect for a romantic dinner or special occasion. For those looking for an experience beyond traditional sushi, Momotaro also offers a wide selection of specialty dishes made with fresh ingredients from Japan. Try the popular Gyu Negioshi to get a taste of Japanese beef tartare paired with crispy quail egg."
+}, 
+{
+	"name": "Kai Zan", 
+	"address": "2557 W Chicago Ave, Chicago, IL 60622",
+	"longitude": -87.6925748, 
+	"latitude": 41.8961908,
+	"why_should_i_go_there":"Kai Zan is a popular spot for contemporary sushi in Chicago's Ukrainian Village neighborhood. With its sleek decor and trendy vibe, Kai Zan is one of the best places to enjoy top-notch sushi outside of downtown. Their menu features nigiri, sashimi, and other classic Japanese dishes prepared with fresh fish from around the world. For something more unique, try the house specialties like the Tokyo Towers or their signature Dynamite Roll. The bar also offers an extensive selection of signature cocktails and sake pairings to enhance your dining experience."
+}, 
+{
+	"name": "Ushiwakamaru Sushi Bar & Restaurant", 
+	"address": "1307 S Wabash Ave, Chicago, IL 60605", 
+	"longitude": -87.6277582,
+    "latitude": 41.863642, 
+    "why_should_i_go_there":"Ushiwakamaru Sushi Bar & Restaurant has been serving up some of the best sushi in town since 2003. Located in the vibrant South Loop neighborhood, Ushiwakamaru offers an intimate setting where you can relax and savor amazing sushi creations by renowned chef Takashi Yagihashi. Their inventive menu features both traditional favorites like California rolls as well as unique creations like Montezuma Rolls (taco-style rolls with bacon and avocado salsa). If you're looking for an unforgettable dining experience in Chicago, Ushiwakamaru Sushi Bar & Restaurant should not be missed."  	   }, 
+
+{    "name": "Sushi Tatsu II",    "address": "2354 W Lawrence Ave Suite 1B ,Chicago ,IL 60625 ",    "longitude": -87.68611770000002 ,     "latitude": 41.96386169999999 ,    "why_should_i_go_there":"If you're looking for high-quality sushi without breaking the bank then Sushi Tatsu II is your spot! This no-frills establishment serves up delicious fresh fish creations that won't break the bank - think classic maki rolls plus creative items such as their Baked Eel Inside Out roll with cream cheese and tempuras shrimp on top. They offer great prices on lunch specials too so you can save even more if you pop by during your weekday lunch hour!" },  
+
+ {    "name": "Hatsuhana Sushi & Vegetarian Restaurant",     "address": "4421 N Lincoln Ave ,Chicago , IL 60625 ",     "longitude": -87.68777699999998 ,      "latitude": 41.96446519999999 ,     "why_should_i_go_there":"For over 30 years Hatsuhana Sushi & Vegetarian Restaurant has been delighting palates on Chicago's north side with authentic Japanese cuisine made using only the highest quality ingredients available. The menu includes options for both vegetarian lovers as well as sushi connoisseurs who favor classics like Spicy Tuna Rolls or Salmon & Avocado Futomaki rolls - whatever your preference there's something for everyone here! It's no wonder that Hatsuhana remains one of Chicago's most beloved sushi destinations to date." }]

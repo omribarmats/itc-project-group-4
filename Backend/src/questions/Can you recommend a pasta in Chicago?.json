@@ -1,0 +1,28 @@
+
+[
+	{
+		"name": "Gather", 
+		"type": "Restaurant", 
+		"address": "4539 N Lincoln Ave, Chicago, IL 60625",
+		"longitude": "-87.6888734", 
+		"latitude": "41.9599009", 
+		"why_should_i_go_there": "Gather offers a unique Italian-American dinner experience focusing on rustic and regional recipes from throughout Italy. The restaurant has an extensive selection of dishes, ranging from classic pastas to creative seafood entrees, plus several vegetarian options. There's also an extensive wine list and cocktail menu to pair with your meal. Combining modern flavors and traditional cooking techniques, Gather is a great choice for a romantic dinner or family gathering."
+	}, 
+  {
+		"name": "Di Silvio Trattoria", 
+    "type": "Restaurant",  
+    "address": "2045 N Damen Ave, Chicago, IL 60647", 
+    "longitude": "-87.6866255",  
+    "latitude": "41.9090418",  
+    "why_should_i_go_there":"Di Silvio Trattoria is a charming Italian restaurant located in the heart of the Bucktown neighborhood of Chicago. The menu features traditional Italian-American specialties like pizza and pasta, as well as more unique offerings such as panzanella salad and goat cheese crostini. All of the pastas are homemade and the ingredients are sourced from local farms when possible. Whether you're looking for a casual dinner or need catering for a special event, Di Silvio Trattoria is sure to satisfy your cravings for Italian fare."  
+}, 
+{    
+    "name": "A Tavola!",     
+    "type": "Restaurant",     
+    "address": "2148 W Chicago Ave, Chicago, IL 60622",     
+    "longitude": "-87.6770421",     
+    "latitude": 41.9034874,      
+    "why_should_i_go_there":"A Tavola! prides itself on its authentic Italian cuisine made with fresh ingredients and housemade sauces – perfect for those looking for a true taste of Italy without leaving the city limits. This cozy family-run restaurant serves up classic pasta dishes like lasagna and ravioli alongside pizzas baked in their wood-fired oven. The atmosphere is casual yet inviting, making it a great spot for date night or dinner with friends."      },  {       
+        "name": "La Tagliatella Neapolitan Pizzeria Ristorante & Bistro Pizza & Pasta Express Cafe",        
+        "type":  Restauranrt,         
+        "address":"301 W Lake St #150, Addison, IL 60101",         langitude: -87.9383149,         latitude: 41.9344735,          why_should_I_go there:"La Tagliatella Neapolitan Pizzeria Ristorante & Bistro Pizza & Pasta Express Cafe features traditional Neapolitan cuisine from chefs who have mastered the art of pizza making in their wood fired brick ovens. This lively bistro is known for its savory wood-fired pizzas as well as its amazing selection of pastas including fettuccine alfredo and spaghetti carbonara. The pasta dishes are all made using high-quality ingredients and delicious sauces that will tantalize your taste buds."          } ,  {            name: Fumo Vero Trattoria + Pizzeria            type: Restaurant            address: 2039 W Division St., Chicago IL 60622            longitude: -87.6952716            latitude: 41.9024736            why should I go there:"Fumo Vero Trattoria + Pizzeria offers classic Italian food with modern flair in Wicker Park neighborhood of Chicago. The menu features both southern Italian and Sicilian staples ranging from small plates to handmade pastas; must-tries include the gnocchi Genovese and spinach ricotta ravioli. They also offer a variety of vegan dishes including lasagna made with soy cheese and eggplant parmesan made with gluten-free breadcrumbs — definitely worth trying!"             }]
