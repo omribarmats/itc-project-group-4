@@ -9,14 +9,14 @@ export const MODAL_OPTIONS = {
 }
 
 export const MODAL_COMPONENTS = {
-    [MODAL_OPTIONS.login] : <SearchForm/>,
+    [MODAL_OPTIONS.search] : <SearchForm/>,
     [MODAL_OPTIONS.location] : <LocationInfo/>,
 }
 
 const initialState = {
     showingMyMap: false,
     modal: {
-        isOpen: false,
+        isOpen: true,
         selectedModal: null,
     },
     loading: true,
