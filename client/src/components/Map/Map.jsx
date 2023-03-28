@@ -12,7 +12,9 @@ import HandleMap from "./HandleMap";
 import { INITIAL_MAP_COORDS, INITIAL_MAP_ZOOM } from "../../config/config";
 
 export default function LeafletMap() {
-  const { foundPlaces } = useSelector((state) => state.map);
+  const { foundPlaces, myPlaces } = useSelector((state) => state.map);
+  const {showingMyMap} = useSelector(state => state.app)
+
 
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
@@ -26,16 +28,17 @@ export default function LeafletMap() {
   }, []);
 
 
-
-  const typeIcon = (type) =>{ 
+  const typeIcon = (type, isSaved) =>{ 
   const iconTypes = ['bar','cafe','hostel','hotel','mall','market','museum','park','restaurant','start-up']
-  const hasIconType = iconTypes.includes
+  const hasIconType = iconTypes.includes(type.toLowerCase())
+  const color = isSaved? 'purple' : 'blue'
    return L.icon({
-      iconUrl: hasIconType ?  `icon-${type}-blue.png` : `icon-blue.png` ,
+      iconUrl: hasIconType ?  `icon-${type}-${color}.png` : `icon-${color}.png` ,
       iconSize: [50, 50],
       popupAnchor: [0, -20],
     });
   }
+
 
   const handleMarkerClick = (locationName) => {
     console.log(`The location ${locationName} has been saved`);
@@ -47,9 +50,11 @@ export default function LeafletMap() {
     type,
     latitude,
     longitude,
+    location
   }) => (
     <Popup>
       <LocationInfo
+        location={location}
         name={name}
         description={why_should_i_go_there}
         type={type}
@@ -72,19 +77,40 @@ export default function LeafletMap() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {foundPlaces &&
-          foundPlaces.map((location) => {
+        {showingMyMap? (
+            myPlaces?.map((location) => {
+              return (
+                <Marker
+                  isSaved={location?.isSaved}
+                  key={location?.key}
+                  position={[location?.latitude, location?.longitude]}
+                  onClick={handleMarkerClick}
+                  icon={typeIcon(location.type, location.isSaved)}
+                >
+                  <CustomPopup {...location} location={location} />
+                </Marker>
+              );
+            })
+
+
+        ):(
+          foundPlaces?.map((location) => {
             return (
               <Marker
-                key={location.name}
+                isSaved={location?.isSaved}
+                key={location?.key}
                 position={[location?.latitude, location?.longitude]}
                 onClick={handleMarkerClick}
-                icon={typeIcon(location.type)}
+                icon={typeIcon(location.type, location.isSaved)}
               >
-                <CustomPopup {...location} />
+                <CustomPopup {...location} location={location} />
               </Marker>
             );
-          })}
+          })
+
+        )
+        
+        }
         <HandleMap />
       </MapContainer>
     </>

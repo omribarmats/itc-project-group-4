@@ -23,11 +23,29 @@ export const mapSlice = createSlice({
     setMyPlaces: (state, action) => {
       state.myPlaces = action.payload;
     },
+    updateLocation: (state, action) => {
+        state.foundPlaces = state.foundPlaces.map( place => {
+            if (place.key === action.payload.key) {
+                return action.payload
+            }
+            return place
+        })
+        state.myPlaces = [...state.myPlaces, action.payload ]
+    },
+    deleteLocation: (state, action) => {
+        state.foundPlaces = state.foundPlaces.map( place => {
+            if (place.key === action.payload.key) {
+                return action.payload
+            }
+            return place
+        })
+        state.myPlaces = state.myPlaces.filter( place => {
+           return place.key !== action.payload.key})}
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setDestination, setFoundPlaces, setMyPlaces } = mapSlice.actions;
+export const { setDestination, deleteLocation, setFoundPlaces, setMyPlaces, updateLocation  } = mapSlice.actions;
 
 //export const SelectedComponent = (state) => state.modal.components[state.modal.componentKey];
 

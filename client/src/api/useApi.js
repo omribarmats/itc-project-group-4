@@ -26,7 +26,7 @@ export default function useApi() {
         return res.data.data
     }, [])
 
-
+  
     // const getLocationsWithFiltersOrg = async () => {
     //     try {
     //         dispatch(startApiCall())

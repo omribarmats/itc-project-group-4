@@ -14,11 +14,12 @@ export const MODAL_COMPONENTS = {
 }
 
 const initialState = {
+    showingMyMap: false,
     modal: {
         isOpen: false,
         selectedModal: null,
     },
-    loading: false,
+    loading: true,
     error: null,
 };
 
@@ -53,6 +54,9 @@ export const appSlice = createSlice({
         resetAppStatus: (state) => {
             state.loading = false;
             state.error = false;
+        },
+        showMyMap: (state, action) => {
+            state.showingMyMap = action.payload? true: false;
         }
     },
 })
@@ -66,7 +70,8 @@ export const {
     clearAppError,
     setLoadingFalse,
     setUserUpdatedInfo,
-    resetAppStatus
+    resetAppStatus,
+    showMyMap
 } = appSlice.actions
 
 //export const SelectedComponent = (state) => state.modal.components[state.modal.componentKey];

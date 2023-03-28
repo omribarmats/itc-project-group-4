@@ -2,8 +2,9 @@ import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useMap, useMapEvents } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux'
+import { INITIAL_DESTINATION, INITIAL_FOUND_PLACES } from '../../api/fakeAPI';
 import useMapHook from '../../state/actions/useMap';
-import { setDestination } from '../../state/reducers/mapSlice';
+import { setDestination, setMyPlaces } from '../../state/reducers/mapSlice';
 
 
 
@@ -26,14 +27,25 @@ export default function HandleMap() {
                 places: [
                     "Museums",
                     "Start-ups",
+                    "park"
                   ]
             }
         })
+        dispatch(setLoadingFalse())
+    }
+
+    const onLocationError = () => {
+        dispatch(setDestination({ name: INITIAL_DESTINATION.name, coords: [INITIAL_DESTINATION.latitude, INITIAL_DESTINATION.longitude] }))
+        dispatch(setMyPlaces(INITIAL_FOUND_PLACES))
     }
 
 
     if (!map.hasEventListeners('locationfound')) {
         map.on('locationfound', onLocationFound);
+      }
+
+      if (!map.hasEventListeners('locationfound')) {
+      map.on('locationerror', onLocationError);
       }
 
     const moveMapToDestination = useCallback((latlng, zoom) => {

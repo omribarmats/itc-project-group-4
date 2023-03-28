@@ -2,16 +2,24 @@ import React from "react";
 import "./LocationInfo.css";
 import { Box, Button, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavBar } from "../NavBar/NavBar.jsx";
+import useMap from "../../state/actions/useMap";
 
 export default function LocationInfo(props) {
+ 
+  const {addLocationToMyMap, removeLocationFromMyMap} = useMap()
   const [savedArray, setSavedArray] = useState([]);
-  const [isSaved, setIsSaved] = useState(false);
+ // const [isSaved, setIsSaved] = useState(false);
   const { foundPlaces } = useSelector((state) => state.map);
 
-  const handleSaveLocation = () => {
-    setIsSaved(!isSaved);
+  const handleLocationAction = () => {
+    if(!props.location.isSaved ) {
+      addLocationToMyMap(props.location)
+    } else {
+      removeLocationFromMyMap(props.location)
+    }
+
   };
 
   return (
@@ -33,7 +41,7 @@ export default function LocationInfo(props) {
         }}
       >
         <img
-          src={`icon-${props.type}-${isSaved ? "purple" : "blue"}.png`}
+          src={`icon-${props.type}-${props.location.isSaved ? "purple" : "blue"}.png`}
           width="50px"
         />
         <Typography
@@ -54,7 +62,7 @@ export default function LocationInfo(props) {
           mb: 0,
           fontWeight: 600,
           fontSize: 12,
-          color: isSaved ? "Purple" : "#1976D2",
+          color: props.location.isSaved ? "Purple" : "#1976D2",
         }}
       >
         {/* {props.type.charAt(0).toUpperCase() + props.type.slice(1)} */}
@@ -76,15 +84,15 @@ export default function LocationInfo(props) {
         style={{
           minWidth: "150px",
           maxWidth: "100px",
-          backgroundColor: isSaved ? "Purple" : "#1976D2",
+          backgroundColor: props.location.isSaved ? "Purple" : "#1976D2",
         }}
         variant="contained"
         onClick={(e) => {
           e.preventDefault();
-          handleSaveLocation();
+          handleLocationAction();
         }}
       >
-        {isSaved ? "Remove" : "Save"}
+        {props.location.isSaved ? "Delete" : "Save"}
       </Button>
     </Box>
   );
