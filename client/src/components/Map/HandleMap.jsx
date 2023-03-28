@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useEffect } from 'react';
-import { useMap, useMapEvents } from 'react-leaflet';
+import { useMap } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux'
 import { INITIAL_DESTINATION, INITIAL_FOUND_PLACES } from '../../api/fakeAPI';
 import useMapHook from '../../state/actions/useMap';
@@ -21,7 +21,6 @@ export default function HandleMap() {
 
     const map = useMap()
 
-
     const onLocationFound = async (e) => {
         if (!loading) return
         dispatch(setDestination({ name: 'Your Location', coords: [e.latlng.lat, e.latlng.lng] }))
@@ -32,7 +31,7 @@ export default function HandleMap() {
                 places: [
                     "Museums",
                     "Start-ups",
-                    "Parksç"
+                    "Parks"
                   ]
             }
         })
@@ -53,34 +52,19 @@ export default function HandleMap() {
       map.on('locationerror', onLocationError);
       }
 
-    const moveMapToDestination = useCallback((latlng, zoom) => {
-        if (!map) return
-        const destZoom = zoom || map.getZoom()
-        map.flyTo(latlng, destZoom)
-    }, [map])
-
-
     const moveMapToFoundPlaces = useCallback((latlng) => {
         if (!map) return
         if(foundPlaces.length > 0) {
             const bounds = L.latLngBounds(foundPlaces.map(location => [location.latitude, location.longitude])).pad(0.2);
-            //const paddedBounds = bounds.pad(0.1)
-           // console.log('paddedBounds',paddedBounds)
             map.flyToBounds(bounds);
-            //map.getBounds().pad(.2)
-            //const paddedBounds = bounds.pad(0.1)
-            //map.flyToBounds(paddedBounds);
         } else {
             return
         }
     }, [map, foundPlaces])
-
-    
-    
-
+     
     useEffect(() => {
         destCoords && foundPlaces && moveMapToFoundPlaces(destCoords)
-    }, [destCoords, foundPlaces, moveMapToDestination, moveMapToFoundPlaces])
+    }, [destCoords, foundPlaces, moveMapToFoundPlaces])
 
     useEffect(() => { map && map.locate() }, [map])
 

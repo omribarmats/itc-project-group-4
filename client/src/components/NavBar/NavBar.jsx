@@ -35,7 +35,6 @@ export default function NavBar() {
         <NavBarButton 
         sx={showingMyMap ? {color: '#f492f4'} : {color: 'white'}}
         onClick={handleMyMapsClick}>My Map</NavBarButton>
-        <NavBarButton>View</NavBarButton>
       </UiToolbar>
     </UiAppBar>
   );

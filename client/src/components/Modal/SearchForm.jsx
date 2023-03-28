@@ -10,6 +10,7 @@ import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useState } from "react";
 import useMap from "../../state/actions/useMap";
+import { UiAlertCollapse } from "../../ui/uiKit/componentsUi/UiAlert";
 
 const activitiesArray = [
   "Cafes",
@@ -83,6 +84,8 @@ export default function SearchForm() {
   const [activities, setActivities] = useState([]);
   const [city, setCity] = useState("");
   const { findLocations } = useMap();
+  const showAlert = error ? true : false
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,6 +101,10 @@ export default function SearchForm() {
     console.log("query:", query);
     findLocations(query);
   };
+
+  const setAppError = (errorMsg) => {
+    dispatch(setAppError(errorMsg))
+  }
 
   const handleActivityChange = (event) => {
     const {
@@ -165,6 +172,10 @@ export default function SearchForm() {
             ))}
           </Select>
         </FormControl>
+      </Box>
+      <Box>
+      <UiAlertCollapse show={showAlert} >{error}</UiAlertCollapse>
+
       </Box>
       <Button
         type="submit"

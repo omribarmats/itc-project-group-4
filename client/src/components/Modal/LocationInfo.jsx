@@ -65,6 +65,7 @@ export default function LocationInfo(props) {
           color: props.location.isSaved ? "Purple" : "#1976D2",
         }}
       >
+        {/* [{props.location.latitude}, {props.location.longitude} ] */}
         {/* {props.type.charAt(0).toUpperCase() + props.type.slice(1)} */}
         {props.type}
       </Typography>

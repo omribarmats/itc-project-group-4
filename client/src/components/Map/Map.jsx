@@ -14,7 +14,7 @@ import { INITIAL_MAP_COORDS, INITIAL_MAP_ZOOM } from "../../config/config";
 export default function LeafletMap() {
   const { foundPlaces, myPlaces } = useSelector((state) => state.map);
   const {showingMyMap} = useSelector(state => state.app)
-
+ 
 
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
@@ -29,7 +29,7 @@ export default function LeafletMap() {
 
 
   const typeIcon = (type, isSaved) =>{ 
-  const iconTypes = ['bar','cafe','hostel','hotel','mall','market','museum','park','restaurant','start-up']
+  const iconTypes = ['bar','cafe','hostel','hotel','mall','market','museum','park','restaurant','start-up', 'startup']
   const hasIconType = iconTypes.includes(type.toLowerCase())
   const color = isSaved? 'purple' : 'blue'
    return L.icon({
@@ -65,6 +65,10 @@ export default function LeafletMap() {
 
   const mapStyle = { height: "100%" }; // set the desired height in pixels
 
+  const maxBounds = [
+    [-90, -180], // Southwest coordinates
+    [90, 180],   // Northeast coordinates
+  ];
   return (
     <>
       <MapContainer
@@ -72,6 +76,8 @@ export default function LeafletMap() {
         zoom={INITIAL_MAP_ZOOM}
         scrollWheelZoom={true}
         style={mapStyle}
+        maxBounds = {maxBounds}
+        maxBoundsViscosity={1.0}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
