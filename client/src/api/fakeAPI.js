@@ -1,108 +1,116 @@
-export const PARIS_RESULTS = `{
-    "name":"Galeries Lafayette",
-    "longitude": "2.331114",
-    "latitude": "48.870214",
-    "type": "Mall",
-    "why_should_i_go_there": "It is a luxurious department store in Paris with a variety of designer clothing and accessories, as well as various beauty products and perfumes."
-    },
-    {
-    "name":"La Motte-Picquet - Grenelle",
-    "longitude": "2.295904",
-    "latitude": "48.850303",
-    "type": "Mall",
-    "why_should_i_go_there": "This mall is mostly composed of luxury and international brands. A stay  here offers you a chance to get your hands on some of the most exquisite items in Paris City."    
-    },
-    {
-    "name":"Les Quatre Temps",
-    "longitude": "2.2839721",
-    "latitude": "48.8929835",
-    "type": "Mall",
-    "why_should_i_go_there": "This shopping complex features many fashion, electronics, and food outlets making it a great spot for all your shopping needs. It also has an interesting collection of contemporary art and a multiplex cinema."
-    },
-    {
-    "name":"Cafe La Palette",
-    "longitude": "2.338531",
-    "latitude": "48.8573784",
-    "type": "Coffee",
-    "why_should_i_go_there": "This café offers a wide selection of delicious food and drinks, with lots of outdoor seating to enjoy the summer days."
-    },
-    {
-    "name":"Kooka Boora Cafe",
-    "longitude": "2.355134",
-    "latitude": "48.8363798",
-    "type": "Coffee",
-    "why_should_i_go_there": "This café prides itself on its variety of coffee beans and brewing methods offering a unique coffee experience. It also offers healthy homemade meals from breakfast until dinner."
-    },
-    {
-    "name":"Carré des Antiquaires",
-    "longitude": "2.328458",
-    "latitude": "48.87163",
-    "type": "Coffee",
-    "why_should_i_go_there": "This café is the perfect place to spend the day browsing its selection of vintage furniture, antiques and home decor. You can also enjoy their selection of freshly brewed coffee and cakes."
-    },
-    {
-    "name":"Musée du Louvre",
-    "longitude": "2.33522",
-    "latitude": "48.8606111",
-    "type": "Museum",
-    "why_should_i_go_there": "The famous Louvre Museum houses one of the largest collections of art and artefacts in the world. Its collection includes masterpieces such as the Mona Lisa, Venus de Milo and the Winged Victory of Samothrace."
-    },
-    {
-    "name":"Musée D'Orsay",
-    "longitude": "2.3265",
-    "latitude": "48.8601768",
-    "type": "Museum",
-    "why_should_i_go_there": "The Musée d'Orsay is a former Beaux-Arts railway station displays the largest collection of impressionist works in the world. It also houses a variety of sculptures, decorative arts and period furniture."
-    },
-    {
-    "name":"Musée Rodin",
-    "longitude": "2.306065",
-    "latitude": "48.8583488",
-    "type": "Museum",
-    "why_should_i_go_there": "This museum exhibits the personal collection of sculptor Auguste Rodin and showcases his most famous works. It also features the gardens outside where you can take a stroll and admire the sculptures dotting the huge property."
-    }`
-
-    export const LONDON_RESULTS = `
-        {
-            "name": "The British Museum",
-            "longitude": "51.5194133",
-            "latitude": "-0.1269544",
-            "type": "Museum",
-            "why_should_i_go_there": "The British Museum is a great place to explore 8 million works of art and antiquities from all around the world, spanning thousands of years of history. It is an 
-    essential cultural destination for any trip to London."
-    },
-    {
-            "name": "Starbucks St Paul's",
-            "longitude": "51.5143038",
-            "latitude": "-0.0981924",
-            "type": "Coffee",
-            "why_should_i_go_there": "This Starbucks is located close to St Paul's cathedral, one of the most famous sights in London. The perfect spot for a quick break on your day trip."
-    },
-    {
-            "name": "Tate Modern",
-            "longitude": "51.50853",
-            "latitude": "-0.099427",
-            "type": "Museum",
-            "why_should_i_go_there": "Tate Modern is one of London’s most popular contemporary art galleries. It has an ever-changing selection of international modern art and some of the world's most renowned works, making it a must-see for art lovers."
-    },
-    {
-            "name": "The Ned",
-            "longitude": "51.511826",
-            "latitude": "-0.087144",
-            "type": "Bar",
-            "why_should_i_go_there": "The Ned is a luxury hotel and lifestyle members club in London. With nine restaurants and bars and two pools, you can enjoy some of the best food and cocktails the city has to offer in this unique venue."
-    },
-    {
-            "name": "Starbucks Trafalgar Square",
-            "longitude": "51.5077245",
-            "latitude": "-0.1283723",
-            "type": "Coffee",
-            "why_should_i_go_there": "Located in central London, this Starbucks is just next door to the world-famous Trafalgar Square. Stop off here on your day trip for a refreshing drink and to people watch in one of the most iconic spots in London."
-    },
-    {
-            "name": "Cahoots",
-            "longitude": "51.5122067",
-            "latitude": "-0.1329459",
-            "type": "Bar",
-            "why_should_i_go_there": "Cahoots is an underground cocktail bar set in an old tube station ticket hall. Step back in time as you explore the 1940s-themed bar accompanied by live swing music, perfect for a unique day out in the city."
-    }`
+ export const INITIAL_DESTINATION =  {
+        "name": "Paris",
+        "longitude": "2.3522",
+        "latitude": "48.8566"
+    }
+ 
+ 
+ export const INITIAL_FOUND_PLACES =  [
+                {
+                    "name": "Louvre Museum",
+                    "longitude": "2.33626",
+                    "latitude": "48.8611",
+                    "type": "Museum",
+                    "why_should_i_go_there": "The Louvre Museum is home to some of the world's most famous artworks, such as the Mona Lisa and Venus de Milo."
+                },
+                {
+                    "name": "Musée d'Orsay",
+                    "longitude": "2.32562",
+                    "latitude": "48.8607",
+                    "type": "Museum",
+                    "why_should_i_go_there": "The Musée d'Orsay is a must-see for art lovers, particularly those interested in 19th century art."
+                },
+                {
+                    "name": "Pompidou Center",
+                    "longitude": "2.35247",
+                    "latitude": "48.860",
+                    "type": "Museum",
+                    "why_should_i_go_there": "The Pompidou Centre is a modern art centre packed with incredible works from all over the world."
+                },
+                {
+                    "name": "Centre Pompidou Metz",
+                    "longitude": "6.17627",
+                    "latitude": "49.1074",
+                    "type": "Museum",
+                    "why_should_i_go_there": "Spread over 70 hectares, the Parc des Buttes Chaumont is one of the most beloved parks of Parisians and visitors alike."
+                },
+                {
+                    "name": "Musée du quai Branly - Jacques Chirac",
+                    "longitude": "2.32304",
+                    "latitude": "48.8617",
+                    "type": "Museum",
+                    "why_should_i_go_there": "The Musée du quai Branly – Jacques Chirac is devoted to Africa, Oceania, Asia, and the Americas."
+                },
+                {
+                    "name": "Jardin des Tuileries",
+                    "longitude": "2.33212",
+                    "latitude": "48.8645",
+                    "type": "Park",
+                    "why_should_i_go_there": "The Jardin des Tuileries is a historic park filled with beautiful gardens, sculptures, and outdoor cafes."
+                },
+                {
+                    "name": "Jardin du Luxembourg",
+                    "longitude": "2.3395",
+                    "latitude": "48.8479",
+                    "type": "Park",
+                    "why_should_i_go_there": "The Jardin du Luxembourg is an exquisite garden and park that features beautiful statues, fountains, and trees."
+                },
+                {
+                    "name": "Jardin des Plantes",
+                    "longitude": "2.36",
+                    "latitude": "48.8417",
+                    "type": "Park",
+                    "why_should_i_go_there": "Jardin des Plantes is a tranquil botanical garden with a large selection of exotic plants and trees, as well as a zoo."
+                },
+                {
+                    "name": "Bois de Vincennes",
+                    "longitude": "2.45992",
+                    "latitude": "48.8506",
+                    "type": "Park",
+                    "why_should_i_go_there": "The vast Bois de Vincennes is one of the largest city parks in Europe and provides ample space for walking, cycling, and picnicking."
+                },
+                {
+                    "name": "Parc des Buttes Chaumont",
+                    "longitude": "2.38425",
+                    "latitude": "48.8856",
+                    "type": "Park",
+                    "why_should_i_go_there": "Spread over 70 hectares, the Parc des Buttes Chaumont is one of the most beautiful parks of Parisians and visitors alike."
+                },
+                {
+                    "name": "Blablacar",
+                    "longitude": "2.3193",
+                    "latitude": "48.8595",
+                    "type": "Startup",
+                    "why_should_i_go_there": "Blablacar is a transportation technology startup that allows users to easily carpool with trusted drivers."
+                },
+                {
+                    "name": "Vizzuality",
+                    "longitude": "2.32023",
+                    "latitude": "48.8694",
+                    "type": "Startup",
+                    "why_should_i_go_there": "Vizzuality is a data visualization company focused on creating interactive maps and data displays for businesses, nonprofits, and governments."
+                },
+                {
+                    "name": "Algolia",
+                    "longitude": "2.33279",
+                    "latitude": "48.8742",
+                    "type": "Startup",
+                    "why_should_i_go_there": "Algolia is a search engine technology startup providing fast and relevant search results for websites and applications."
+                },
+                {
+                    "name": "Agora Pulse",
+                    "longitude": "2.32341",
+                    "latitude": "48.8637",
+                    "type": "Startup",
+                    "why_should_i_go_there": "Agora Pulse is a social media management platform that helps businesses track and measure their online presence across multiple channels."
+                },
+                {
+                    "name": "Criteo",
+                    "longitude": "2.35601",
+                    "latitude": "48.8805",
+                    "type": "Startup",
+                    "why_should_i_go_there": "Criteo is an artificial intelligence-based personalization platform that enables brands to understand their customer behavior and build tailored experiences."
+                }
+            ]
+        
+    
