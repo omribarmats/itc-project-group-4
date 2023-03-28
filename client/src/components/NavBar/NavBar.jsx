@@ -8,6 +8,8 @@ import NavBarButton from "./NavBarButton";
 import { MODAL_OPTIONS, openModal, showMyMap } from "../../state/reducers/appSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+import logo from '../../images/logo.png';
+
 export default function NavBar() {
 
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ export default function NavBar() {
   return (
     <UiAppBar position="sticky" sx={{ backgroundColor: "black" }}>
       <UiToolbar>
-        <UiBox px={3}>Logo</UiBox>
+      <UiBox px={3}><img src={logo} width={40} height={40} /></UiBox>
         <NavBarButton 
         onClick={handleSearchClick}
         sx={!showingMyMap ? {color: '#70b9ff'} : {color: 'white'}}
