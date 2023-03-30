@@ -26,7 +26,7 @@ export default function Modal() {
 
   return (
     !loading ? (
-      <UiDialog open={isOpen} onClose={handleOnClose}>
+      <UiDialog open={isOpen} onClose={handleOnClose} >
         <SearchForm />
       </UiDialog>
     ) : (

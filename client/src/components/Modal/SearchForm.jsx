@@ -11,6 +11,7 @@ import Chip from "@mui/material/Chip";
 import { useEffect, useState } from "react";
 import useMap from "../../state/actions/useMap";
 import { UiAlertCollapse } from "../../ui/uiKit/componentsUi/UiAlert";
+import { UiFlexCol } from "../../ui/uiKit/layouts/UiFlex";
 
 const activitiesArray = [
   "Cafes",
@@ -86,12 +87,17 @@ export default function SearchForm() {
   const { findLocations } = useMap();
   const showAlert = error ? true : false;
   const [showActivitiesAlert, setShowActivitiesAlert] = useState(false);
-  const [isSearchDisabled, setIsSearchDisabled] = useState(true);
+  const [isSearchDisabled, setIsSearchDisabled] = useState(false);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearAppError());
+    if (!(activities.length > 0 && activities.length <= 4 && city !== "")) {
+      console.log('not selected')
+      setIsSearchDisabled(true)
+      return
+    } 
 
     const query = {
       query: {
@@ -109,6 +115,7 @@ export default function SearchForm() {
   }
 
   const handleActivityChange = (event) => {
+    setIsSearchDisabled(false) 
     const {
       target: { value },
     } = event;
@@ -116,66 +123,78 @@ export default function SearchForm() {
   };
 
   const handleCityChange = (event) => {
+    setIsSearchDisabled(false) 
     setCity(event.target.value);
   };
 
-  const setSearchButton = () => {
-    (activities.length > 0 && activities.length <= 4 && city !== "") ? setIsSearchDisabled(false) : setIsSearchDisabled(true);
+  // const setSearchButton = () => {
 
-  }
+  //   (activities.length > 0 && activities.length <= 4 && city !== "") ? setIsSearchDisabled(false) : setIsSearchDisabled(true);
+
+  // }
 
   useEffect(() => {
     activities.length > 4 ? setShowActivitiesAlert(true) : setShowActivitiesAlert(false);
-    setSearchButton();
+   // setSearchButton();
 
   }, [activities]);
 
-  useEffect(() => {
-    setSearchButton();
+  // useEffect(() => {
+  //   setSearchButton();
 
-  }, [city]);
+  // }, [city]);
 
   return (
     <Box
       component="form"
       onSubmit={handleSubmit}
       sx={{
-        //width: 500,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        justifyContent: 'center',
+        gap: 3,
+        width: '500px',
         //height: 300,
         maxWidth: "md",
         backgroundColor: "white",
-        padding: 2,
+        px: 4,
+        py: 4
       }}
     >
-      <h2>Search</h2>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel size='small' 
-        id="activities">Top 5</InputLabel>
-        <Select
-          labelId="activities"
-          id="activities"
-          name="activities"
-          size='small'
-          multiple
-          value={activities}
-          onChange={handleActivityChange}
-          input={<OutlinedInput id="activities" label="activities" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-        >
-          {activitiesArray.map((activitity) => (
-            <MenuItem key={activitity} value={activitity}>
-              {activitity}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <Box sx={{ m: 1, maxWidth: 300 }}>
+
+
+
+      <h2 style={{ textAlign: 'center', margin: '0' }}>Search</h2>
+      <Box >
+        <FormControl fullWidth>
+          <InputLabel
+            id="activities">Top 5</InputLabel>
+          <Select
+            labelId="activities"
+            id="activities"
+            name="activities"
+            multiple
+            value={activities}
+            onChange={handleActivityChange}
+            input={<OutlinedInput id="activities" label="activities" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+          >
+            {activitiesArray.map((activitity) => (
+              <MenuItem key={activitity} value={activitity}>
+                {activitity}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box >
+      <Box sx={{ width: '100%' }}>
         <FormControl fullWidth>
           <InputLabel id="city">City</InputLabel>
           <Select
@@ -193,26 +212,47 @@ export default function SearchForm() {
           </Select>
         </FormControl>
       </Box>
-      <Box>
-        <UiAlertCollapse show={showAlert} >{error}</UiAlertCollapse>
-        {showActivitiesAlert ? <UiAlertCollapse show={showActivitiesAlert} >Please choose up to four activities</UiAlertCollapse> : null}
-        {(isSearchDisabled && !showActivitiesAlert) ? <UiAlertCollapse show={isSearchDisabled} >All fields must be selected</UiAlertCollapse> : null}
-      </Box>
-      <Button
-        type="submit"
-        variant="contained"
-        size="large"
-        style={{
-          minWidth: "50px",
-          // height: "100%",
-          margin: "20px",
-          padding: "10px",
-          alignSelf: "center",
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'stretch',
+          justifyContent: 'center',
         }}
-        disabled={isSearchDisabled}
       >
-        Search
-      </Button>
+
+
+        <Box>
+          <UiAlertCollapse show={showAlert} >{error}</UiAlertCollapse>
+          {showActivitiesAlert ? (
+            <Box mb={2}>
+          <UiAlertCollapse my={2} show={showActivitiesAlert} >Please choose up to four activities</UiAlertCollapse>
+        </Box>
+        ) : null}
+          {(isSearchDisabled && !showActivitiesAlert) ? (
+            <Box mb={2}>
+          <UiAlertCollapse show={isSearchDisabled} >All fields must be selected</UiAlertCollapse>
+          </Box>
+          ) : null}
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+         
+          style={{
+            minWidth: "150px",
+            // height: "100%",
+             margin: "10px 0 0 0",
+            // padding: "10px",
+            alignSelf: "center",
+          }}
+          // disabled={isSearchDisabled}
+        >
+          Search
+        </Button>
+      </Box>
+
     </Box>
   );
 }
