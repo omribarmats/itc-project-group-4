@@ -31,8 +31,8 @@ export default function HandleMap() {
                 location: { latitude: e.latlng.lat, longitude: e.latlng.lng },
                 places: [
                     "Museums",
-                    "Start-ups",
-                    "Parks"
+                    'startup',
+                    'park'
                   ]
             }
         })

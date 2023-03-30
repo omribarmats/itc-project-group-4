@@ -9,6 +9,7 @@ import { MODAL_OPTIONS, openModal, showMyMap } from "../../state/reducers/appSli
 import { useDispatch, useSelector } from "react-redux";
 
 import logo from '../../images/logo.png';
+import { Typography } from "@mui/material";
 
 export default function NavBar() {
 
@@ -30,12 +31,13 @@ export default function NavBar() {
     <UiAppBar position="sticky" sx={{ backgroundColor: "black" }}>
       <UiToolbar>
       <UiBox px={3}><img src={logo} width={40} height={40} /></UiBox>
+      <Typography sx={{margin: '0 50px 0 -10px'}}>ITC-UNICORN</Typography>
         <NavBarButton 
         onClick={handleSearchClick}
-        sx={!showingMyMap ? {color: '#70b9ff'} : {color: 'white'}}
+        sx={!showingMyMap ? {color: '#70b9ff', minWidth:'8rem'} : {color: 'white', minWidth:'8rem'}}
         >Search</NavBarButton>
         <NavBarButton 
-        sx={showingMyMap ? {color: '#f492f4'} : {color: 'white'}}
+        sx={showingMyMap ? {color: '#f492f4', minWidth:'8rem'} : {color: 'white', minWidth:'8rem'}}
         onClick={handleMyMapsClick}>My Map</NavBarButton>
       </UiToolbar>
     </UiAppBar>
