@@ -20,13 +20,6 @@ body {
 	/* overflow: auto; */
 }
 
-.error-message {
-	font-size: 25px;
-	margin: 20px;
-	color: red;
-	text-align: center;
-}
-
 .form-control-borderless {
 	border: none;
 }

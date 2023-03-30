@@ -119,7 +119,7 @@ module.exports = class FreeSearchController {
 		}
 
 		try {
-			prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
+			prompt = `Give top two travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
 			let giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
 
 			prompt = `Fix any JSON format errors in the following text: "${giveRecommendation}" Return JSON`;

@@ -1,0 +1,39 @@
+:
+
+[{
+	"name": "Fletcher's Bikes",
+	"address": "2136 University Ave, San Diego, CA 92104",
+	"longitude": 32.7485325, 
+	"latitude": -117.126774, 
+	"why_should_i_go_there": "Fletcher's Bikes specializes in bike rentals and sales, offering a wide range of bicycles for all kinds of terrain. They also provide repair services if needed and they offer classes to teach customers how to ride and maintain their bikes. The shop is staffed with friendly, knowledgeable staff that are always ready to help make your biking experience enjoyable." 
+},  
+{
+	"name": "La Jolla Cyclery Downtown",
+	"address": "558 E St, Chula Vista, CA 91910", 
+	"longitude": 32.6338672, 
+	"latitude": -117.094409, 
+	"why_should_i_go_there": "La Jolla Cyclery Downtown offers an extensive selection of mountain, road and comfort bikes for every kind of rider. Their experienced staff is always eager to help their customers in choosing the right bike for them, as well as helping them take care of any repairs that are needed. With a convenient location in downtown San Diego and competitive prices on their quality products, La Jolla Cyclery Downtown is a great destination for all kinds of cyclists." 
+},  
+{   
+   "name": "University Bicycle Centers", 
+   "address": "7831 Highland Village Pl #402-G, San Diego, CA 92129", 
+   "longitude": 32.8660172 , 
+   "latitude": -117.209281, 
+   "why_should_i_go_there": "Located just minutes away from the heart of San Diego, University Bicycle Centers provides rental services for both mountain and urban bikes at affordable rates. Their knowledgeable staff can help you choose the best bike for your needs and will offer tips on how to ride safely around the city. With its great selection of quality bikes and helpful personnel, University Bicycle Center is an excellent choice for those looking to rent a bike in San Diego." 
+},  
+{   
+    "name":"Paul’s Bicycle Way of Life",    
+    "address":"4269 30th Street, San Diego, CA 92104",    
+    "longitude": 32.7550028 ,    
+    "latitude": -117.126156,    
+    "why_should_i_go_there":  "Paul's Bicycle Way of Life is an affordable bike rental shop located right near Balboa Park in San Diego. This family-owned business has been serving locals and visitors alike since 1997 with its wide selection of bicycles including road bikes, mountain bikes and cruisers at great prices. They also have accessories available so you can ride safely around town."   },   {   
+
+    "name":"Rental Bikes WorldWide LLC.",    
+
+    "address":"817 C St Suite 206C,San Diego,CA 923041",    
+
+    "longitude": 33.4042639 ,    
+
+    "latitude":-117.1509218,    
+
+    "why_should_i_go_there":"Rental Bikes Worldwide LLC offers high quality bike rentals for both short-term trips around the city or longer traveling adventures nationwide and worldwide! Their comprehensive selection includes mountain bikes and tandem frames as well as folding bikes that are easy to transport from one place to another. With professional service and competitive pricing Rental Bikes Worldwide LLC is a great choice if you're looking to explore San Diego by bike!" }]

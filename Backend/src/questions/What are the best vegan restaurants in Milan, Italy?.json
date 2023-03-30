@@ -1,0 +1,31 @@
+:
+
+[{
+	"name": "Loving Hut",
+	"address": "Via Nolana 4, 20123 Milano MI, Italy",
+	"longitude": "9.1859243",
+	"latitude": "45.4667971",
+	"why_should_i_go_there": "Loving Hut is a vegan food chain with locations around the world. The Milan store offers an array of vegan dishes and snacks, including a large selection of baked goods and desserts. They also have a variety of plant-based burgers, sandwiches, wraps, salads, and soups. Everything on the menu is 100% vegan and made with fresh ingredients. If you're looking for a quick yet delicious meal, this is the perfect spot." 
+}, 
+{ 
+	"name": "Menza e Bottega",
+	"address": "Viale Col di Lana 34, 20146 Milano MI, Italy", 
+	"longitude": "9.2088204", 
+	"latitude": "45.4651971",
+	"why_should_i_go_there":"Menza e Bottega is a cozy vegan eatery located in the Porta Venezia area of Milan. The restaurant offers creative Italian-inspired dishes such as gnocchi alla Norma, lasagne di seitan, and 'riccioli' made with tofu ricotta cheese. There's also a variety of homemade desserts like cupcakes and tiramisu. The menu is extensively marked with both vegan and gluten free options so it's easy to find something suitable." 
+}, 
+{
+	"name": "Green Mind",
+    "address": "Viale Don Luigi Sturzo 30/A, 20122 Milano MI, Italy", 
+    "longitude": "9.1885081", 
+    "latitude": "45.4634689",  
+    "why_should_i_go_there":"Located in the heart of Milan near Corso Buenos Aires, Green Mind is a health food bistro dedicated to vegan and vegetarian cuisine. The menu features fresh salads and smoothies as well as hearty hot dishes such as falafels, veggie burgers and risottos prepared with seasonal vegetable ingredients. They also offer raw cakes for those with a sweet tooth."  
+},  
+{  
+	"name": "Lov Organic By Eataly",    
+	"address": "Piazza XXV Aprile 10/12, 20129 Milano MI, Italy",   
+	"longitude": "9.1776822",    
+	"latitude":  "45.46778809999999",        \n 
+    "why_should_i_go_there":"Lov Organic by Eataly is a vegetarian oasis near Piazzale Cadorna that specializes in organic, plant-based cuisine. The restaurant serves up burgers made with beets and hemp seeds or lentils and mushrooms as well as other healthy yet delicious meals like soup bowls or quinoa steak. All the dishes are vibrant in flavor yet light on calories and the menu changes seasonally to incorporate fresh local ingredients."  }, {    
+
+    	\n   "name": "Km Zero Tavola Calda",    "address": "Via Emanuele Filiberto 7/A , 20122 Milano MI , Italy",     "longitude": "9 .1950163 . ", latitude: \"45 .4641653 .\", why_should_i _ go _ there: \"KM Zero Tavola Calda is one of the best vegan restaurants in Milan . It offers wholesome , fresh food that appeals to both vegans and non - vegans alike .The extensive menu includes hot dishes full of flavor inspired by Mediterranean cuisine such as falafel wraps , hummus platters , roasted vegetables , cous cous bowl , curries , soups , salads and more . There are also freshly squeezed juices , smoothies and desserts to top off your meal .\"  } ]

@@ -1,0 +1,36 @@
+
+
+[{
+	"name": "Café Louvre",
+	"address": "Národní 22, Praha 1, 110 00, Czechia",
+	"longitude": "14.4322981",
+	"latitude": "50.0875085",
+	"why_should_i_go_there": "Famous for its Vienna-style coffee, Café Louvre offers a welcoming atmosphere and delightful snacks in the heart of Old Town. The cafe has been open since 1902 and still features original Art Nouveau decorations from Czech painter Mikoláš Aleš. Inside you'll find cozy couches and armchairs, as well as open-air seating in the courtyard - the perfect place for a relaxing cup of coffee and to people watch."
+},
+{
+	"name": "Lehká Hlava Cafe & Bakery",
+	"address": "Novoměstské nám., Praha 1, 118 00, Czechia",
+	"longitude": "14.4254781",
+	"latitude": "50.0807932",
+	"why_should_i_go_there": "Set inside an old house near the Astronomical Clock Tower, Lehká Hlava is a vibrant cafe and bakery serving up delicious sandwiches, salads and pastries. The cozy atmosphere makes it a great spot to relax after sightseeing or enjoy afternoon tea with friends. The cafe also boasts an extensive selection of freshly made cakes, pies and tarts - definitely try their classic Apple Strudel if you have room!"
+}, 
+{ 
+  "name": "Eska Café",             
+  "address": "Příkop 621/9, Praha 1, 11000, Czechia",   
+  "longitude": "14.4292667",  
+  "latitude": "50.0861859",   
+  "why_should_i_go_there":"Eska Café serves up hearty comfort food combined with a great selection of local wines and craft beers in an industrial-chic space. Located inside a 19th century basement near Wenceslas Square, this chic venue is a great spot to energize before a night on the town or unwind after exploring Prague's ancient monuments. They offer classic dishes like goulash soup with bread dumplings as well as more modern interpretations of traditional Czech fare such as venison schnitzel with potato salad." 
+}, 
+{  
+   "name":"Kavárna Sladkovský",      
+   "address":"Smetanovo nábřeží 306/6 , Praha 1 , 110 00 , Česká republika",     
+   "longitude":"14.4203513 ",  
+   "latitude":"50.0820991 ",   
+   "why_should_i_go_there":"Kavárna Sladkovský is a charming cafe tucked away off Charles Bridge in Mala Strana that was once frequented by renowned Czech composer Bedrich Smetana. The cozy interior feels like stepping into another time where old paintings hang on the walls and folk music plays softly in the background - impeccable service only adds to the warm atmosphere. This is one of the best places in Prague to sample traditional Czech cuisine like smoked bacon with sauerkraut dumplings or roasted duck served alongside homemade liqueur plums." 
+}, 
+{   
+   "name":"Kavovarna Bar Master's Coffee House & Brewery ",    
+   "address":"Tachovské námestí 719/2 . Praha 8 . 186 00 . Česká Republika ",     
+   "longitude":"14.4742105 ",   
+   "latitude":"50.0648252 ",   
+   "why_should_i_go_there":"Bar Masters Coffee House & Brewery is an eclectic cafe serving espresso-based drinks plus craft beer brewed onsite using water sourced straight from artesian wells beneath the city's Old Town district. The staff are passionate about their coffee and beer and can recommend what pairs best with each item on their menu - they even offer brewing courses! With its funky decor featuring vintage movie posters and retro furniture, this establishment is perfect for anyone who appreciates quality beverages as much as good vibes."  }]

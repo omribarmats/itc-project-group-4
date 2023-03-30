@@ -1,0 +1,34 @@
+
+
+[ 
+	{ 
+		"name": "Egyptian Museum", 
+		"address": "Gezira of Al-Balaq, Cairo, Egypt", 
+		"longitude": "31.2461752", 
+		"latitude": "30.0521137", 
+		"why_should_i_go_there": "The Egyptian Museum is one of the most important museums in the world and it contains some of the oldest and most prestigious artifacts in history. It sits on the River Nile and is home to more than 100,000 items, including Tutankhamun's famous golden mask. Explore ancient mummies and ancient artifacts from over 5000 years ago." 
+    },
+    { 
+        "name": "Islamic Museum", 
+        "address": "El Muizz St, Islamic Cairo Governorate, Cairo 11511, Egypt", 
+        "longitude": "31.2598928",  
+        "latitude": "30.0411824", 
+        "why_should_i_go_there": "A unique museum that features Islamic art from all eras. The Collection includes a variety of artefacts from different Arab countries – from religious artifacts to Islamic ceramics and glassware. It offers visitors a wonderful view into the fascinating culture and traditions of various Muslim civilizations around the world." 
+    },     
+    {    
+    	"name": "Manial Palace Museum",     
+    	"address": "From Qalawun metro: Mir'fat al-Khalig St., Manial District, El Roda Island., Cairo 11351, Egypt",      
+    	"longitude":"31.2119179",      
+    	"latitude":"30.0915839",      
+    	"why_should_i_go_there": "Manial Palace Museum is a must-see for anyone wishing to learn more about Near East Royal Palaces. Located on the east bank of Cairo, this stunning palace was built in 1903 by Prince Mohamed Ali Tewfik as a recreational retreat for his family members. The palace holds an art collection which includes paintings from Monet, Roerich and many others."  
+
+    },     
+    {       
+    	"name":"MMAO - Martial & Military Arts Organization Multimedia Museum ",        
+    	"address":"1 Salah Salem Ramses Square Down Town Cairo 1114125355, Egypt",                      "longitude":"31.239209",                         "latitude":"30.045242",                          "why_should_i_go_there":"MMAO - Martial & Military Arts Organization Multimedia Museum is dedicated to preserving the martial arts heritage of Ancient Egypt through interactive exhibitions featuring music, martial arts demos, video displays and special activities."  
+
+    },  
+
+    {                    "name":"Fateh el Mogaddam Museum",                          "address":"Shubra El Kheima Qism As Shoubra 11141 Cairo Governorate 15-Min Street AS Salam Mosque Opposite KFC Food Court Shoubra El–Khema Kotness Main Entrance There (Google Maps), Egypt",                        "longitude":"31.262807",                        "latitude":"30.076206",                           "why_should_i_go_there":"Fateh el-Mogaddam Museum is a small but impressive museum located near Shobra El Khima Market in Cairo that houses a great collection of manuscripts from Medieval Islam as well as documents from pre-islamic times like hieroglyphs and Coptic documents."  
+
+    } ]

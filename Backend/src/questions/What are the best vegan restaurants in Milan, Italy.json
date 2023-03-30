@@ -1,0 +1,17 @@
+
+
+[
+	{
+		"name": "BioDinamica", 
+		"address": "Viale Montenero, 26/a, 20128 Milan, Italy", 
+		"longitude": "31.7764903", 
+		"latitude": "35.1983634",
+		"why_should_i_go_there": "BioDinamica is a vegan restaurant in Milan offering fresh, organic and delicious Italian dishes. The menu includes classic Italian favorites like pasta, pizza and risotto as well as healthy salads and smoothies. Everything on the menu is made from organic and cruelty-free ingredients, so you can dine guilt-free. The atmosphere is cozy and inviting and the staff are friendly and welcoming. If you're looking for a vegan spot in Milan to enjoy amazing food with friends or family, BioDinamica is the place to go."
+}, 
+{
+		"name": "Radikon", 
+		"address": "Corso San Gottardo 11 20186 Milan, Italy", 
+		"longitude": "31.7764903",  
+		"latitude": "35.1983634", 
+		"why_should_i_go_there": "Radikon is a vegetarian restaurant in Milan providing an amazing culinary experience. They offer a mix of traditional Italian dishes—such as lasagna, ravioli and gnocchi—as well as modern takes on classic recipes. All of the ingredients are locally sourced and freshly prepared every day. The atmosphere is warm and comfortable and the service is excellent. If you're looking for a great vegetarian spot to eat in Milan that won't break the bank, Radikon should be your first choice." 
+}]

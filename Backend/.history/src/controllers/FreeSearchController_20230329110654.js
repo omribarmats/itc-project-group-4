@@ -68,7 +68,7 @@ async function Chat(
 			presence_penalty: presence,
 		});
 		const answer = response.data.choices[0].text;
-		console.log('answer:', answer);
+		// console.log('answer:', answer);
 
 		return answer;
 	} catch (error) {
@@ -80,7 +80,7 @@ module.exports = class FreeSearchController {
 	static async Search(req, res) {
 		const { query } = req.body;
 
-		let prompt = `Is the following text a grammatically correct sentence question? "${query}" Return "true/"false"}`;
+		let prompt = `Is  the following text a grammatically correct sentence question? "${query}" Return "true/"false"}`;
 		const isQuestion = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();
@@ -89,7 +89,7 @@ module.exports = class FreeSearchController {
 			console.log('is a not question');
 			return res.status(200).json({
 				success: true,
-				destinations: `Hey there! Could you kindly rephrase your question as a valid one? For instance:<p> Where are the best bike rental stores in Paris, France?<p>`,
+				data: 'Please enter a question',
 			});
 		}
 		prompt = `Is the following text asking about a city, country, or region on earth? "${query}" Return "true/"false"}`;
@@ -101,25 +101,24 @@ module.exports = class FreeSearchController {
 			console.log('is not a destination');
 			return res.status(200).json({
 				success: true,
-				destinations:
-					'Hey there! Please enter a question about a particular destination. For instance: <p>"Could you suggest a great spot with a view to see Lisbon, Portugal?"</p>',
+				data: 'Please enter a question about a destination',
 			});
 		}
 
-		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"False"}`;
+		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"false"}`;
 		const isRecommendation = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();
-		if (isRecommendation.includes('false')) {
+		if (isDestination.includes('false')) {
 			console.log('is not asking for a recommendation');
 			return res.status(200).json({
 				success: true,
-				destinations: `Hello! I'm here and delighted to assist you with any travel recommendations you may need. <p>As an example, you could ask me, "Are there any great pizza restaurants you would recommend in Palermo, Italy?"</p>`,
+				data: 'Please enter ask for recommendations',
 			});
 		}
 
+		prompt = `Give top five travel recommendations based on the following text "${query}" in JSON, for example: ${example}`;
 		try {
-			prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
 			let giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
 
 			prompt = `Fix any JSON format errors in the following text: "${giveRecommendation}" Return JSON`;
@@ -132,11 +131,11 @@ module.exports = class FreeSearchController {
 			}
 
 			const parseJson = JSON.parse(validJson);
-			console.log('validJson', validJson);
+			console.log('parseJson', parseJson);
 
 			return res.status(200).json({
 				success: true,
-				destinations: parseJson,
+				data: parseJson,
 			});
 		} catch (error) {
 			return res.status(400).json({

@@ -70,7 +70,7 @@ async function Chat(
 		const answer = response.data.choices[0].text;
 		console.log('answer:', answer);
 
-		return answer;
+		return example;
 	} catch (error) {
 		console.log('error:', error);
 		return error;
@@ -106,7 +106,7 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"False"}`;
+		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"false"}`;
 		const isRecommendation = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();
@@ -119,7 +119,7 @@ module.exports = class FreeSearchController {
 		}
 
 		try {
-			prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
+			prompt = `Give top two travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
 			let giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
 
 			prompt = `Fix any JSON format errors in the following text: "${giveRecommendation}" Return JSON`;

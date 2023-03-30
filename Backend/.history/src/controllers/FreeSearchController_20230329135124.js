@@ -106,7 +106,7 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"False"}`;
+		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"false"}`;
 		const isRecommendation = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();

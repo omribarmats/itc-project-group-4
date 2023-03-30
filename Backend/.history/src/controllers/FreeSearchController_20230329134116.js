@@ -106,7 +106,7 @@ module.exports = class FreeSearchController {
 			});
 		}
 
-		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"False"}`;
+		prompt = `Is the following text asking for travel recommendations "${query}"? Return "true/"false"}`;
 		const isRecommendation = (
 			await Chat(prompt, 0.1, 10, 0.1, 0.3, 0.3)
 		).toLowerCase();
@@ -114,12 +114,12 @@ module.exports = class FreeSearchController {
 			console.log('is not asking for a recommendation');
 			return res.status(200).json({
 				success: true,
-				destinations: `Hello! I'm here and delighted to assist you with any travel recommendations you may need. <p>As an example, you could ask me, "Are there any great pizza restaurants you would recommend in Palermo, Italy?"</p>`,
+				destinations: `Hello! I'm here and delighted to assist you with any travel recommendations you may need. <p>As an example, you could ask me, "Are there any great pizza restaurants you would recommend in Palermo, Italy?</p>`,
 			});
 		}
 
 		try {
-			prompt = `Give top five travel recommendations based on the following text "${query}" in JS array of objects, for example: ${example}`;
+			prompt = `Give top five travel recommendations based on the following text "${query}" in JSON, for example: ${example}`;
 			let giveRecommendation = await Chat(prompt, 1, 2500, 1, 0.3, 0.8);
 
 			prompt = `Fix any JSON format errors in the following text: "${giveRecommendation}" Return JSON`;

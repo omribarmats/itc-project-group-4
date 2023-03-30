@@ -21,10 +21,9 @@ body {
 }
 
 .error-message {
-	font-size: 25px;
+	font-size: 20px;
 	margin: 20px;
 	color: red;
-	text-align: center;
 }
 
 .form-control-borderless {
