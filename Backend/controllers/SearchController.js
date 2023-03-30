@@ -221,9 +221,9 @@ module.exports = class SearchController {
 
         if (isQuestion.includes('false')) {
             console.log('is a not question');
-            return res.status(200).json({
+            return res.status(400).json({
                 success: true,
-                data: 'Please enter a question',
+                error: 'Please enter a question',
             });
         }
         prompt = `Is the following text asking about a city, country, or region on earth? "${query}" Return "true/"false"}`;
@@ -233,9 +233,9 @@ module.exports = class SearchController {
 
         if (isDestination.includes('false')) {
             console.log('is not a destination');
-            return res.status(200).json({
-                success: true,
-                data: 'Please enter a question about a destination',
+            return res.status(400).json({
+                success: false,
+                error: 'Please enter a question about a destination',
             });
         }
 
@@ -245,9 +245,9 @@ module.exports = class SearchController {
         ).toLowerCase();
         if (isDestination.includes('false')) {
             console.log('is not asking for a recommendation');
-            return res.status(200).json({
-                success: true,
-                data: 'Please enter ask for recommendations',
+            return res.status(400).json({
+                success: false,
+                error: 'Please enter ask for recommendations',
             });
         }
 
@@ -273,9 +273,7 @@ module.exports = class SearchController {
         } catch (error) {
             return res.status(400).json({
                 success: false,
-                error: error.response
-                    ? error.response.data
-                    : 'There was an issue on the server',
+                error: 'There was an issue on the server',
             });
         }
 
