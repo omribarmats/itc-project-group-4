@@ -122,8 +122,8 @@ export default function SearchForm() {
       component="form"
       onSubmit={handleSubmit}
       sx={{
-        width: 500,
-        height: 300,
+        //width: 500,
+        //height: 300,
         maxWidth: "md",
         backgroundColor: "white",
         padding: 2,
@@ -131,11 +131,13 @@ export default function SearchForm() {
     >
       <h2>Search</h2>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="activities">Top 5</InputLabel>
+        <InputLabel size='small' 
+        id="activities">Top 5</InputLabel>
         <Select
           labelId="activities"
           id="activities"
           name="activities"
+          size='small'
           multiple
           value={activities}
           onChange={handleActivityChange}

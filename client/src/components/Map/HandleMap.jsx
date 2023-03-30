@@ -20,6 +20,7 @@ export default function HandleMap() {
     const dispatch = useDispatch()
 
     const map = useMap()
+    map.setMinZoom(2)
 
     const onLocationFound = async (e) => {
         if (!loading) return
@@ -55,7 +56,7 @@ export default function HandleMap() {
     const moveMapToFoundPlaces = useCallback((latlng) => {
         if (!map) return
         if(foundPlaces.length > 0) {
-            const bounds = L.latLngBounds(foundPlaces.map(location => [location.latitude, location.longitude])).pad(0.2);
+            const bounds = L.latLngBounds(foundPlaces.map(location => [location.latitude, location.longitude])).pad(0.1);
             map.flyToBounds(bounds);
         } else {
             return

@@ -31,7 +31,10 @@ export default function useMap() {
   const dispatch = useDispatch()
 
   const handleApiError = useCallback((error) => {
-    const errorMsg = error.response?.data?.error || error.message;
+    let errorMsg = error.response?.data?.error?.error?.message || error.message || error.response?.data?.error;
+    if (typeof errorMsg !== 'string' && !(errorMsg instanceof String)) {
+      errorMsg = 'An error has ocurred. Please try again'
+    }
     dispatch(setAppError(errorMsg))
     console.log(error);
   }, [dispatch])
