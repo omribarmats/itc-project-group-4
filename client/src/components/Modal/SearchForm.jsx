@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMap from "../../state/actions/useMap";
 import { UiAlertCollapse } from "../../ui/uiKit/componentsUi/UiAlert";
 
@@ -84,7 +84,9 @@ export default function SearchForm() {
   const [activities, setActivities] = useState([]);
   const [city, setCity] = useState("");
   const { findLocations } = useMap();
-  const showAlert = error ? true : false
+  const showAlert = error ? true : false;
+  const [showActivitiesAlert, setShowActivitiesAlert] = useState(false);
+  const [isSearchDisabled, setIsSearchDisabled] = useState(true);
 
 
   const handleSubmit = (e) => {
@@ -116,6 +118,22 @@ export default function SearchForm() {
   const handleCityChange = (event) => {
     setCity(event.target.value);
   };
+
+  const setSearchButton = () => {
+    (activities.length > 0 && activities.length <= 4 && city !== "") ? setIsSearchDisabled(false) : setIsSearchDisabled(true);
+
+  }
+
+  useEffect(() => {
+    activities.length > 4 ? setShowActivitiesAlert(true) : setShowActivitiesAlert(false);
+    setSearchButton();
+
+  }, [activities]);
+
+  useEffect(() => {
+    setSearchButton();
+
+  }, [city]);
 
   return (
     <Box
@@ -176,8 +194,9 @@ export default function SearchForm() {
         </FormControl>
       </Box>
       <Box>
-      <UiAlertCollapse show={showAlert} >{error}</UiAlertCollapse>
-
+        <UiAlertCollapse show={showAlert} >{error}</UiAlertCollapse>
+        {showActivitiesAlert ? <UiAlertCollapse show={showActivitiesAlert} >Please choose up to four activities</UiAlertCollapse> : null}
+        {(isSearchDisabled && !showActivitiesAlert) ? <UiAlertCollapse show={isSearchDisabled} >All fields must be selected</UiAlertCollapse> : null}
       </Box>
       <Button
         type="submit"
@@ -190,6 +209,7 @@ export default function SearchForm() {
           padding: "10px",
           alignSelf: "center",
         }}
+        disabled={isSearchDisabled}
       >
         Search
       </Button>
